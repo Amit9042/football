@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
   }
 
   redircetToNextPage() {
-    this.router.navigate([])
+    this.router.navigate([RouteConstants.DASHBOARD_PATH])
   }
 
   goTosignUp() {

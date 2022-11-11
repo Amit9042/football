@@ -19,4 +19,8 @@ export class RoutePathConstants {
   public static readonly VERIFY_EMAIL = 'verify-email';
   public static readonly RESET_PASSWORD = 'reset-password';
   public static readonly FORGOT_PASSWORD = 'forgot-password';
+
+  /* DASHBOARD MODULE  */
+  public static readonly DASHBOARD = 'dashboard';
+
 }

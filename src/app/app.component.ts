@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { scrollToTop } from '@sharedModule/functions';
+import { AppVisibilityConstants } from '@sharedModule/constants';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'football';
+  visibility = AppVisibilityConstants.HIDE_HEADER_HIDE_SIDEBAR_SHOW_FOOTER;
+
+
+  onActivate() {
+    setTimeout(() => {
+      scrollToTop()
+    }, 500);
+  }
 }
