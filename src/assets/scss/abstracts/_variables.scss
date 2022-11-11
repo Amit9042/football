@@ -1,0 +1,149 @@
+$blue-color: #176cb6;
+$blue-color1: #446086;
+$blue-color2: #0d5594;
+$blue-color3: #005cc8;
+$blue-color4: #0036b3;
+$blue-color5: #6694e1;
+
+$dark-blue-color: #284771;
+$dark-blue-color-1: #1f2d40;
+$dark-blue-color-2: #304562;
+$dark-blue-color3: #1e2d40;
+
+$dark-blue-color3: #202140;
+$dark-blue-color4: #101937;
+
+$light-blue-color: #64b5f6;
+$light-blue-color3: #47bef7;
+$light-blue-color4: #42ace0;
+$light-blue-color5: #398cb8;
+$light-blue-color5: #8fd5f7;
+$light-blue-color6: #2396f2;
+$light-blue-color7: #5ea7e4;
+$light-blue-color8: #6684ad;
+
+$black-color: #000000;
+$black-color1: #17212e;
+
+$font_family_Assistant: "Assistant", sans-serif;
+$font_family_Inter: "Inter", sans-serif;
+$font_family_Roboto: "Roboto", sans-serif;
+$font-family_Montserrat: "Montserrat", sans-serif;
+
+$white-color: #ffffff;
+$white-color1: #f5f5f5;
+$white_color2: #c4c4c4;
+
+$primary_black_color: #17212f;
+
+$gray-color: #4c6485;
+$gray-color1: #bebebe;
+$gray-color2: #4d616e;
+$gray-color3: #6175a0;
+$gray-color4: #61798a;
+$gray-color5: #dadada;
+$gray-color6: #4a5e7b;
+
+$dark_gray_color: #9b9b9b;
+
+$sidebar-width: 7rem;
+$large-sidebar-width: 30rem;
+$navbar-height: 6rem;
+$mobile_navbar_height: 22rem;
+$large_mobile_navbar_height: 35rem;
+$savebar_height: 8rem;
+
+$red-color: #e11e1e;
+$red-color2: #970000;
+$red-color3: #700707;
+$red-color4: #c43247;
+
+$light-red-color: #ed6464;
+
+$light-pink-color: #d5c3cb;
+
+$maroon-color: #60474f;
+$maroon-color1: #42243b;
+$maroon-color2: #a09094;
+$maroon-color3: #523444;
+
+$purple-color: #433b78;
+$purple-color1: #9089af;
+$purple-color2: #232a6d;
+$purple-color3: #79789a;
+
+$green-color: #057202;
+$green-color1: #439446;
+$green-color2: #66ac69;
+$green-color3: #144400;
+$green-color4: #75b583;
+
+$violet-blue-color: #4c1e57;
+$violet-blue-color1: #97779b;
+$violet-blue-color2: #310c4b;
+$violet-blue-color3: #202140;
+
+$light-green-color: #c5e1a5;
+$light-green-color1: #b2ca96;
+
+$orange-color: #c54f00;
+$orange-color1: #c22b0a;
+$orange-color2: #f37500;
+
+// CHIPS
+$dark-green-color: #8fa580;
+$yellow_color: #ffbd14;
+$yellow-color1: #fdb515;
+
+$primary-color-4: rgba(#203061, 0.03);
+$primary-color-2: rgba(#203061, 0.2);
+$light-gray-color-9: rgba(#2a303f, 0.4);
+
+$sidebar_width: 7rem;
+$large_sidebar_width: 25rem;
+$navbar_height: 12rem;
+$translation_bar_height: 8rem;
+
+$ORGANIZATION: "ORGANIZATION";
+$SERVICE: "SERVICE";
+$PRODUCT: "PRODUCT";
+$PROJECT: "PROJECT";
+$PATENT: "PATENT";
+$HUB: "HUB";
+$OPPORTUNITY: "OPPORTUNITY";
+$PROGRAM: "PROGRAM";
+
+$entityTypes: ($ORGANIZATION, $SERVICE, $PRODUCT, $PROJECT, $HUB, $PROGRAM);
+
+$action: "action";
+$noConnection: "noConnection";
+$external: "external";
+$published: "published";
+$certified: "certified";
+$allianceCTA: "allianceCTA";
+$firstContact: "firstContact";
+$confirmation: "confirmation";
+$waitingForApproval: "waitingForApproval";
+$approved: "approved";
+$sirhaProposed: "sirhaProposed";
+$cardDecks: (
+  $action,
+  $noConnection,
+  $external,
+  $published,
+  $certified,
+  $allianceCTA,
+  $firstContact,
+  $confirmation,
+  $waitingForApproval,
+  $approved,
+  $sirhaProposed
+);
+
+/* FORM FIELDS */
+$text_input_radius: 0.8rem;
+$text_input_height: 6rem;
+$text_input_padding: 0 1rem 0 1rem;
+$text_input_padding_all: 1rem;
+$program_chip: "PROGRAM_CHIP";
+$off_white_chip: "OFF_WHITE_CHIP";

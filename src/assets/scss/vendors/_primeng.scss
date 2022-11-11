@@ -1,0 +1,383 @@
+
+.list-study-container {
+  .p-datatable {
+    @include respond("phone") {
+      .p-datatable-scrollable-view {
+        &:not(.p-datatable-frozen-view) {
+          left: 20rem !important;
+          width: calc(100% - 20rem) !important;
+        }
+        &.p-datatable-frozen-view {
+          width: 20rem !important;
+        }
+      }
+    }
+
+    .p-datatable-tbody > tr {
+      padding: 1.2rem;
+      height: 80px;
+      background: $dark-blue-color-1;
+      color: $white-color;
+      border-top: 1px solid $blue-color1;
+      &:first-child {
+        border-top: none;
+      }
+    }
+
+    .p-datatable-thead > tr {
+      padding: 1.2rem;
+      height: 10rem;
+      background: $dark-blue-color-1;
+      color: $white-color;
+      border-top: 1px solid $blue-color1;
+      &:first-child {
+        border-top: none;
+      }
+
+      .p-column-filter-menu-button {
+        border-radius: 2px;
+        & > td {
+          border: none;
+          padding-left: 2rem;
+          text-align: left;
+          @include respond("phone") {
+            width: 20rem !important;
+          }
+        }
+      }
+    }
+
+    .p-datatable-thead {
+      & > tr {
+        & > th {
+          background: $dark-blue-color-1;
+          border: transparent;
+          color: $white-color;
+          padding: 0;
+          text-align: left;
+          font-weight: normal;
+          .th-header {
+            background-color: $dark-blue-color-2;
+            padding: 3rem 1rem;
+            margin: 1rem;
+            min-height: 4rem;
+            max-height: 4rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+
+    .p-datatable-scrollable-header {
+      // position: sticky;
+      // top: 15rem;
+      // z-index: 1000;
+      // box-shadow: 2px -4px 12px #1f2d3f;
+    }
+    .p-datatable-scrollable-header-table {
+      background: $dark-blue-color-1;
+    }
+
+    .p-datatable-frozen-view {
+      .noRecord {
+        display: none;
+      }
+    }
+
+    .p-datatable-header {
+      background: $dark-blue-color-1;
+      color: $white-color;
+      padding: 1rem;
+      border: 0;
+      // position: sticky;
+      // top: $navbar-height;
+      // z-index: 1001;
+    }
+
+    .p-paginator {
+      background: $dark-blue-color-1; //AMIT
+      color: $light-blue-color; //AMIT
+      padding: 3rem 0;
+      justify-content: flex-end;
+      padding-right: 5rem;
+
+      @include respond("phone") {
+        justify-content: center;
+        flex-direction: column;
+        padding-right: 0;
+      }
+
+      .pi {
+        font-size: 1.8rem;
+      }
+      &-first,
+      &-prev,
+      &-next,
+      &-last {
+        color: $light-blue-color; // AMIT
+        padding: 2rem; //AMIT
+      }
+
+      .p-dropdown-item {
+        padding: 0.5rem;
+      }
+      .p-paginator-current {
+        color: $light-blue-color4;
+        line-height: 2rem;
+        @include respond("tab-port") {
+          flex: 0 0 100%;
+        }
+      }
+
+      .p-paginator-pages {
+        .p-paginator-page {
+          color: $light-blue-color;
+          font-size: 1.5rem;
+          margin: 0 2rem;
+          padding: 0.5rem;
+          &.p-highlight,
+          &:not(.p-highlight):hover {
+            background: $light-blue-color;
+            border-color: $light-blue-color;
+            border-radius: 0.4rem;
+            color: $dark-blue-color-2;
+          }
+        }
+      }
+
+      .p-paginator-rpp-options.p-dropdown.p-component {
+        align-items: center;
+        border: 1px solid $light-blue-color;
+        height: auto;
+        border-radius: 0.4rem;
+        padding: 0.5rem;
+      }
+    }
+  }
+}
+
+.p-sidebar {
+  height: 100%;
+  background: #f6f6f6;
+  .p-sidebar-content {
+    height: 100%;
+  }
+  .p-sidebar-header {
+    display: none;
+  }
+}
+
+.prime-chips {
+  .p-chips {
+    min-height: 7rem;
+    &.p-component {
+      width: 100%;
+      ul {
+        box-shadow: none !important;
+        width: 100%;
+      }
+      .p-chips-multiple-container {
+        font-size: 1.6rem;
+        .p-chips-token {
+          padding: 1rem;
+          background: #f8f8f8;
+          margin-bottom: 3px;
+          margin-top: 3px;
+        }
+      }
+      .p-chips-input-token {
+        input {
+          font-size: 1.6rem;
+        }
+      }
+      .p-chips-token-icon {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+.prime-dropdown {
+  .p-dropdown {
+    border: 0.4rem solid transparent;
+    width: 100%;
+    .p-dropdown-label {
+      font-size: 1.6rem;
+      padding: 2.2rem;
+    }
+    .p-dropdown-trigger-icon {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/* sidebar CSS */
+.p-sidebar {
+  & .p-sidebar-content {
+    padding-top: 2.5rem !important;
+  }
+  &.p-sidebar-bottom {
+    left: $sidebar-width;
+    width: calc(100% - #{$sidebar-width});
+    background: #1d1d41;
+  }
+}
+
+/* FRONT OFFICE START */
+.front-prime-dropdown {
+  .p-dropdown {
+    box-shadow: none !important;
+    border: 0.1rem solid transparent;
+    border-radius: 0 0 1rem 1rem;
+    width: 100%;
+    &:not(.p-disabled) {
+      &:hover {
+        border-color: $light-blue-color;
+      }
+      &.p-focus {
+        outline: 0 none;
+        box-shadow: 0 0 0 0.2rem $light-blue-color;
+        border-color: $light-blue-color;
+      }
+    }
+    &.p-placeholder {
+      color: $light-blue-color;
+    }
+    .p-dropdown-label {
+      font-size: 1.4rem;
+      padding: 1.5rem 1rem;
+    }
+    .p-dropdown-trigger {
+      margin-right: 2rem;
+      .pi-chevron-down {
+        &:before {
+          color: $light-blue-color;
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .p-dropdown-panel {
+      border: 1px solid transparent;
+      border-radius: 0.4rem;
+      background: #ffffff;
+      width: inherit;
+
+      .p-dropdown-items {
+        background-color: $white-color;
+        p-dropdownitem {
+          &:not(:last-child) {
+            .p-dropdown-item {
+              &:after {
+                position: absolute;
+                content: "";
+                border-bottom: 0.1rem solid #fbbb19;
+                width: calc(100% - 3rem);
+                bottom: 0;
+                left: 1.5rem;
+              }
+            }
+          }
+        }
+        .p-dropdown-item {
+          font-family: $font-family_Inter;
+          font-weight: 400;
+          font-size: 1.4rem;
+          padding: 2.4rem 1.5rem 2.4rem 2.5rem;
+          color: #000000 !important;
+          position: relative;
+          &.p-highlight {
+            display: none;
+          }
+          &:not(.p-highlight):not(.p-disabled) {
+            &:hover {
+              background: #fbbb19;
+            }
+          }
+        }
+      }
+    }
+
+    .p-dropdown-clear-icon {
+      right: 6rem;
+      font-size: 1.5rem;
+      color: $light-blue-color;
+    }
+  }
+}
+
+/* p-dialog start */
+.collab-confirm-modal {
+  min-height: 100vh;
+  .p-dialog-header {
+    background: #1d1d41;
+    border-bottom: 0;
+  }
+
+  .p-dialog-content {
+    padding: 0;
+  }
+}
+/* p-dialog end */
+
+/* p-autocomplete START */
+.prime-autocomplete {
+  .p-inputtext {
+    font-size: 1.6rem;
+  }
+  .p-autocomplete {
+    width: 100%;
+    .p-autocomplete-multiple-container {
+      box-shadow: none !important;
+      border: 0;
+      width: 100%;
+      min-height: 7rem;
+      .p-autocomplete-token {
+        padding: 1rem;
+        background: #f8f8f8;
+        margin-bottom: 3px;
+        margin-top: 3px;
+      }
+      .p-autocomplete-token-icon {
+        font-size: 1.6rem;
+      }
+    }
+    .p-autocomplete-panel {
+      .p-autocomplete-items {
+        .p-autocomplete-item {
+          padding: 1.4rem;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+/* p-autocomplete  END*/
+
+.p-tooltip {
+  font-size: 1.4rem;
+}
+
+.p-chips, .p-dropdown {
+  .pi {
+    font-size: 1.4rem;
+  }
+  .p-inputtext {
+    font-size: 1.4rem;
+    font-family: $font-family_Inter;
+  }
+}
+
+.p-component {
+  font-family: $font-family_Inter;
+  font-size:  1.4rem;;
+}
+
+/* sidebar CSS */
+.p-component-overlay {
+  &.p-sidebar-mask {
+    display: none;
+  }
+}

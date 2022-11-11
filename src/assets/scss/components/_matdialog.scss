@@ -1,0 +1,40 @@
+.dialog-close-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+  svg {
+    height: 3rem;
+    width: 3rem;
+    path {
+      fill: #616196;
+    }
+  }
+}
+
+.share-dialog {
+  .mat-dialog-container {
+    border-radius: 2rem;
+  }
+}
+.content_pad_0 {
+  .mat-dialog-container {
+    padding: 0;
+  }
+}
+
+.left-modal {
+  width: 90%;
+  min-width: 90%;
+  min-height: 100%;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.bottom-modal {
+  &.savebar {
+    height: $savebar_height;
+  }
+  width: 100%;
+  min-width: 100%;
+}
