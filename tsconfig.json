@@ -2,6 +2,17 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    
+    
+    "paths": {
+      "@sharedModule/*": [
+        "src/app/shared-module/*"
+      ],
+    },
+    "noImplicitAny": false,
+    "strictPropertyInitialization": false,
+
+    
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
