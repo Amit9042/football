@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpMethodsTypeEnum } from '@sharedModule/constants';
-import { SharedService, HttpHelperService } from '@sharedModule/services';
+import { SharedService } from '@sharedModule/services';
+import { HttpHelperService } from '../services/http-helper.service';
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +14,7 @@ export class APIManager extends HttpHelperService {
         super(sharedService, http);
     }
 
-    override httpHelperMethod(
+    httpHelperMethod(
         methodType: HttpMethodsTypeEnum,
         url: string,
         params = {},

@@ -1,3 +1,4 @@
 export class AppConstants {
-  public static readonly CONSTANTS = '';
+  public static readonly ACCEPT = 'accept';
+  public static readonly REJECT = 'reject';
 }

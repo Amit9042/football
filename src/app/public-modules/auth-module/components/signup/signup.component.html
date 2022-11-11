@@ -1,0 +1,164 @@
+<div class="signup-container auth-container">
+  <div class="auth-box">
+    <form (ngSubmit)="onSignup()" [formGroup]="signupForm">
+      <div class="row">
+        <div class="col-md-12 auth">
+          <div class="header-container">
+            <img class="company-logo" src="assets/images/symbiotiq_logo_w.png" alt="">
+            <h2 class="auth-header">{{ 'common.general.catchLine' }}</h2>
+          </div>
+          <div class="auth-form-container">
+            <p class="welcome-label">{{ 'pages.signup.createAccount' }}</p>
+            <p class="joining-label">{{ 'common.hub.joining' }} <span class="joining-label__bold">{{
+                'common.hub.symbiotiqTech' }}</span>
+              {{ 'common.hub.innovationHub' }}
+            </p>
+            <!-- <div class="login-options">
+                          <div class="login-options__label">{{ 'pages.signup.socialSignUp'  }}</div>
+                          <div class="row login-options__buttons">
+                              <div class="col-md-4">
+                                  <button type="button" class="btn google">
+                                      {{ 'common.socialLogin.google' }}</button>
+                              </div>
+                              <div class="col-md-4">
+                                  <button type="button" class="btn linkedin">
+                                      {{ 'common.socialLogin.linkedin' }}</button>
+                              </div>
+                              <div class="col-md-4">
+                                  <button type="button" class="btn facebook">
+                                      {{ 'common.socialLogin.facebook' }}</button>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="or-section">
+                          {{ 'pages.signup.emailSignUp'  }}
+                      </div> -->
+            <div class="auth-form">
+              <div class="row form-field">
+                <div class="col-md-6 PL-0 smallpadding">
+                  <label>{{ 'common.firstname' }}</label>
+                  <input type="text" [formControlName]="signupFormFields.firstname" class="form-control PTB-2">
+                  <!-- <app-validation-error [control]="formControls[signupFormFields.firstname]"
+                    [fieldName]="'common.firstname' "></app-validation-error> -->
+                </div>
+                <div class="col-md-6 PR-0 smallpadding">
+                  <label>{{ 'common.lastname' }}</label>
+                  <input type="text" [formControlName]="signupFormFields.lastname" class="form-control PTB-2">
+                  <!-- <app-validation-error [control]="formControls[signupFormFields.lastname]"
+                    [fieldName]="'common.lastname' "></app-validation-error> -->
+                </div>
+              </div>
+              <div class="form-field">
+                <label>{{ 'common.email' }}</label>
+                <input type="text" [formControlName]="signupFormFields.username" class="form-control PTB-2">
+                <!-- <app-validation-error [control]="formControls[signupFormFields.username]" [fieldName]="'common.email' ">
+                </app-validation-error> -->
+              </div>
+              <div class="row password-fields">
+                <div class="col-md-6 PL-0 smallpadding">
+                  <label>{{ 'common.password' }}</label>
+                  <input type="password" [formControlName]="signupFormFields.password" class="form-control PTB-2">
+                  <!-- <app-validation-error [control]="formControls[signupFormFields.password]"
+                    [fieldName]="'common.password' " [minLengthCount]="8"></app-validation-error> -->
+                </div>
+                <div class="col-md-6 PR-0 smallpadding">
+                  <label>{{ 'common.confirmPassword' }}</label>
+                  <input type="password" [formControlName]="signupFormFields.confirmPassword"
+                    class="form-control PTB-2">
+                  <!-- <app-validation-error *ngIf="signupForm?.errors?.passwordMismatch;else elseBlock"
+                    [erroMsg]="'Password does not match'">
+                  </app-validation-error> -->
+                  <ng-template #elseBlock>
+                    <!-- <app-validation-error [control]="formControls[signupFormFields.confirmPassword]"
+                      [fieldName]="'common.confirmPassword' "></app-validation-error> -->
+                  </ng-template>
+                </div>
+                <div class="form-field password-description">
+                  <small>{{ 'common.passwordInstructions.format' }}
+                    <ul>
+                      <li>{{ 'common.passwordInstructions.charsLong' }}</li>
+                      <li>{{ 'common.passwordInstructions.capitals' }}</li>
+                      <li>{{ 'common.passwordInstructions.numbers' }}</li>
+                      <li>{{ 'common.passwordInstructions.specialChars' }}</li>
+                    </ul>
+                  </small>
+                </div>
+              </div>
+              <div class="form-field lang-section">
+                <label>{{ 'pages.signup.langLabel' }}</label>
+                <div class="radio-section">
+                  <div class="radio left">
+                    <p-radioButton class="language" label="{{ 'common.languages.fr'  }}" [value]="'fr-CA'"
+                      [formControlName]="signupFormFields.communicationLang">
+                    </p-radioButton>
+                  </div>
+                  <div class="radio right">
+                    <p-radioButton class="language" label="{{ 'common.languages.en'  }}" [value]="'en-CA'"
+                      [formControlName]="signupFormFields.communicationLang">
+                    </p-radioButton>
+                  </div>
+                </div>
+                <app-validation-error [control]="formControls[signupFormFields.communicationLang]"
+                  [fieldName]="'pages.signup.langField' "></app-validation-error>
+
+              </div>
+              <div class="form-field">
+                <div class="term-conditions prime-checkbox">
+                  <p-checkbox name="terms" [formControlName]="signupFormFields.termsAndCondition" [binary]="true">
+                  </p-checkbox>
+                  <div class="term-conditions__text">
+                    <span>{{ 'pages.signup.iAgreeTo' }}</span>
+                    <!-- '/'+routes.TERMS_AND_CONDITIONS -->
+                    <a [href]="" target="_blank">
+                      {{'pages.signup.termAndCondition'}}</a>
+                  </div>
+                </div>
+                <app-validation-error
+                  *ngIf="formControls[signupFormFields.termsAndCondition].errors && (formControls[signupFormFields.termsAndCondition].touched || formControls[signupFormFields.termsAndCondition].dirty)"
+                  [control]="formControls[signupFormFields.termsAndCondition]"
+                  [erroMsg]="'Please accept Terms and Privacy Conditions'">
+                </app-validation-error>
+              </div>
+              <div class="form-field">
+                <div class="term-conditions prime-checkbox">
+                  <p-checkbox name="privacyPolicy" [formControlName]="signupFormFields.privacyPolicy" [binary]="true">
+                  </p-checkbox>
+                  <div class="term-conditions__text">
+                    <span>{{ 'pages.signup.iAgreeTo' }}</span>
+                    <!-- '/'+routes.PRIVACY_POLICY -->
+                    <a [href]="" target="_blank">{{'pages.signup.privacyPolicy'}}</a>
+                  </div>
+                </div>
+                <app-validation-error
+                  *ngIf="formControls[signupFormFields.privacyPolicy].errors && (formControls[signupFormFields.privacyPolicy].touched || formControls[signupFormFields.privacyPolicy].dirty)"
+                  [control]="formControls[signupFormFields.privacyPolicy]" [erroMsg]="'Please accept Privacy Policy'">
+                </app-validation-error>
+              </div>
+              <div class="submit-section">
+                <button class="btn btn__PTB-2 submit-btn" type="submit">
+                  {{ 'pages.signup.createAccount' }}</button>
+              </div>
+            </div>
+            <!-- <recaptcha [size]="'invisible'" [hide]="false" (captchaResponse)="onCaptchaResponse($event)">
+            </recaptcha> -->
+            <div class="bottom-account-section">
+              <label for="">{{ 'pages.signup.alreadyHaveAccount' }}</label>
+              <button type="button" class="btn btn__PTB-2" [routerLink]="['/'+routes.LOGIN_PATH]">
+                {{ 'pages.login.logIn' }}</button>
+            </div>
+          </div>
+          <div class="swarm">
+            {{ 'common.general.SWARM' }}<br> <!--  <img src="assets/images/swarm.png" /> -->
+          </div>
+          <div class="copy-right-section row">
+            <span class="copy-right">{{ 'common.general.copyright' }}</span>
+            <div class="right-text-section">
+              <span class="cookie-policy">{{ 'common.general.cookiePolicy' }}</span>
+              <span class="terms">{{ 'common.general.privacyAndTerms' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

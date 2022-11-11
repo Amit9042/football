@@ -1,0 +1,35 @@
+@import 'src/assets/scss/abstracts/abstracts';
+
+::ng-deep {
+  .ui-input-switch {
+    .p-inputswitch {
+      width: 4rem;
+
+      .p-inputswitch-slider {
+        background: transparent;
+        border: 0.2rem solid #37C782;
+        box-shadow: none !important;
+
+        &:before {
+          background: #37C782;
+        }
+
+        &:hover {
+          background: #B9F0D2 !important;
+        }
+      }
+
+      &.p-inputswitch-checked {
+        .p-inputswitch-slider {
+          background: #ffffff;
+
+          &:before {
+            background: #37C782 !important;
+            transform: translateX(2rem) !important;
+          }
+        }
+      }
+    }
+  }
+
+}

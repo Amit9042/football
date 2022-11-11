@@ -1,0 +1,18 @@
+@import "src/assets//scss/abstracts/abstracts";
+
+.ui-textarea {
+  .ui-textarea-input {
+    width: 100%;
+    border-radius: $text_input_radius;
+    padding: 1rem;
+    padding: $text_input_padding_all;
+    @include uiInputText($primary_black_color, $white-color);
+    &:disabled {
+      @include disableInputOpacity();
+    }
+  }
+  .count-section {
+    position: absolute;
+    right: 0;
+  }
+}

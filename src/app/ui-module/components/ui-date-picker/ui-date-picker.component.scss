@@ -1,0 +1,93 @@
+@import "src/assets/scss/abstracts/abstracts";
+
+::ng-deep {
+  .cdk-overlay-container {
+    z-index: 1200; // modal issue
+  }
+  .ui-date-picker {
+    position: relative;
+    .date-input {
+      border-radius: $text_input_radius;
+      height: $text_input_height;
+      padding: $text_input_padding;
+      @include uiInputText($primary_black_color, $white-color);
+      &:disabled {
+        @include disableInputOpacity();
+      }
+    }
+    .mat-datepicker-toggle {
+      position: absolute;
+      right: 0;
+    }
+  }
+  .mat-datepicker-content-container {
+    flex-direction: row !important;
+  }
+  .datepicker-time-container {
+    font-size: 1.3rem;
+    padding: 1rem;
+    /* COMMON */
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.6rem;
+      height: 3.6rem;
+      cursor: pointer;
+      border-radius: 50%;
+      &.active {
+        background: #e7faf0;
+      }
+      &:hover {
+        background: #e7faf0;
+      }
+    }
+    /* COMMON */
+    .time-header {
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .datepicker-time {
+      .number-section {
+        display: flex;
+        height: calc(100% - 10rem);
+        .hour-list {
+          display: flex;
+          flex-direction: column;
+          &.second {
+            margin-left: 1rem;
+          }
+        }
+        .seperator {
+          padding: 0 1.5rem;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+        }
+        .minute-list {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+      .am-pm {
+        display: flex;
+        padding: 1rem;
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex: 0 0 50%;
+          height: 3rem;
+          cursor: pointer;
+          &.active {
+            background: #e7faf0;
+          }
+          &:hover {
+            background: #e7faf0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@import "src/assets/scss/abstracts/abstracts";
+.ui-input {
+  border-radius: $text_input_radius;
+  height: $text_input_height;
+  padding: $text_input_padding;
+  @include uiInputText($primary_black_color, $white-color);
+}

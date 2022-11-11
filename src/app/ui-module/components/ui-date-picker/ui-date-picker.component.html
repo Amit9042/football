@@ -1,0 +1,32 @@
+<div class="ui-date-picker">
+  <input [disabled]="disabled" #dateInput [ngModel]="value" (ngModelChange)="onDateChange($event)" class="date-input" matInput [matDatepicker]="datePicker" (dateInput)="addEvent($event)">
+  <mat-datepicker-toggle matSuffix [for]="datePicker">
+    <mat-icon matDatepickerToggleIcon>
+      <!-- <svg-icon class="svg_calendar" name="calendar"></svg-icon> -->
+    </mat-icon>
+  </mat-datepicker-toggle>
+  <span></span>
+  <mat-datepicker #datePicker [panelClass]="'ui-date-panel'" (opened)="onOpen()"></mat-datepicker>
+  <div style="display: none">
+    <div class="datepicker-time-container" #datepickerTime>
+      <div class="time-header">Time</div>
+      <div class="datepicker-time">
+        <div class="number-section">
+          <div class="hour-list first">
+            <span (click)="hourClicked(item)" [class.active]="hour === item" class="item hour" *ngFor="let item of hourList1">{{item}}</span>
+          </div>
+          <div class="hour-list second">
+            <span (click)="hourClicked(item)" [class.active]="hour === item" class="item hour" *ngFor="let item of hourList2">{{item}}</span>
+          </div>
+          <div class="seperator">:</div>
+          <div class="minute-list">
+            <span (click)="minuteClicked(item)" [class.active]="minute === item" class="item minute" *ngFor="let item of minuteList">{{item}}</span>
+          </div>
+        </div>
+        <div class="am-pm">
+          <span [class.active]="ampm === ampmEnum.AM" (click)="ampmClicked(ampmEnum.AM)">AM</span>
+          <span [class.active]="ampm === ampmEnum.PM" (click)="ampmClicked(ampmEnum.PM)">PM</span>
+        </div>
+      </div>
+    </div>
+  </div>

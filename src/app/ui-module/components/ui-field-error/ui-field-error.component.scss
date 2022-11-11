@@ -1,0 +1,11 @@
+.validation-error {
+  position: absolute;
+  top: 103%;
+  color: white;
+  font-size: 1.2rem;
+  width: fit-content;
+  background-color: red;
+  padding: 4px;
+  border-radius: 4px;
+  z-index: 2;
+}

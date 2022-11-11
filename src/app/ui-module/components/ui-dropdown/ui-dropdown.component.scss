@@ -1,0 +1,68 @@
+@import "src/assets/scss/abstracts/abstracts";
+
+::ng-deep {
+  .ui-dropdown {
+    .p-dropdown {
+      border-radius: $text_input_radius;
+      width: 100%;
+      background: #ffffff;
+      border: 0.1rem solid #ffffff;
+
+      /* COMMON START */
+      ::-webkit-scrollbar-track {
+        background: #ffffff;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #ACECC9;
+      }
+
+      /* COMMON END */
+
+      &:not(.p-disabled) {
+        &:hover {
+          border-color: #ffffff;
+        }
+
+        &.p-focus {
+          box-shadow: none;
+        }
+      }
+
+      .p-dropdown-label {
+        height: $text_input_height;
+        padding: $text_input_padding;
+        display: flex;
+        align-items: center;
+        color: #C4C4C4;
+      }
+
+      .p-dropdown-trigger {
+        width: 5rem;
+      }
+
+      .p-dropdown-panel {
+        width: inherit;
+        border: 1px solid #ffffff;
+
+        .p-dropdown-items {
+          .p-dropdown-item {
+            padding: 2rem 1rem;
+            background: #ffffff;
+            color: #C4C4C4;
+
+            &.p-highlight {
+              background: #ACECC9;
+              color: #ffffff;
+            }
+
+            &:not(.p-highlight):not(.p-disabled):hover {
+              color: #304562;
+              background: #B9F0D2;
+            }
+          }
+        }
+      }
+    }
+  }
+}

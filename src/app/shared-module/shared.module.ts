@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialImportModule, PrimengImportModule } from "./modules";
 import { GroupByPipe } from "@sharedModule/pipes";
+import { UIModule } from "@uiModule/ui.module";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { GroupByPipe } from "@sharedModule/pipes";
     ReactiveFormsModule,
     MaterialImportModule,
     PrimengImportModule,
+    UIModule,
   ],
 
   exports: [
@@ -25,6 +27,7 @@ import { GroupByPipe } from "@sharedModule/pipes";
     ReactiveFormsModule,
     MaterialImportModule,
     PrimengImportModule,
+    UIModule,
   ],
 
   providers: [GroupByPipe, DatePipe],

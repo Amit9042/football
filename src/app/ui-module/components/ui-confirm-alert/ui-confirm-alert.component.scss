@@ -1,0 +1,62 @@
+@import "src/assets/scss/abstracts/abstracts";
+
+::ng-deep {
+  .ui-confirm-alert-container {
+    .mat-dialog-container {
+      padding: 0;
+      background: #1d1d41;
+      border-radius: 2rem;
+    }
+  }
+}
+
+.ui-confirm-alert {
+  position: relative;
+  padding: 8rem 3rem 3rem 3rem;
+  letter-spacing: 0;
+  width: 80rem;
+  color: #616196;
+  .svg-section {
+    margin-bottom: 2rem;
+    .svg-icon {
+      svg {
+        height: 7rem;
+        width: 7rem;
+        path {
+          fill: #616196;
+        }
+      }
+    }
+  }
+  .header {
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  .desclaimer {
+    font-size: 1.8rem;
+    font-weight: 200;
+    margin-bottom: 2rem;
+  }
+
+  .btn-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    button {
+      margin: 0 1rem;
+      padding: 1rem 2.5rem;
+      font-size: 1.5rem;
+      color: $white-color;
+      border-radius: 0.4rem;
+      font-family: $font_family_Inter;
+      &.accept-btn {
+        background: #2a2a88;
+      }
+      &.reject-btn {
+        background: #010306;
+      }
+    }
+  }
+}

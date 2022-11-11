@@ -1,0 +1,23 @@
+<ng-container *ngIf="erroMsg; else elseBlock">
+  <div class="validation-error">{{erroMsg}}</div>
+</ng-container>
+<ng-template #elseBlock>
+  <div class="validation-error" *ngIf="control?.errors && (control.dirty || control.touched)">
+    <div *ngIf="control?.errors?.required"><small class="field-name">
+        {{fieldName ? fieldName : 'This Field'}}&nbsp;is required</small></div>
+    <div *ngIf="control?.errors?.maxlength"><small class="field-name">
+        Maximum characters should be <= {{control?.errors?.maxlength?.requiredLength}}&nbsp; for ({{fieldName ?
+          fieldName.toLowerCase() : 'this field' }})</small>
+    </div>
+    <div *ngIf="control?.errors?.minlength"><small class="field-name">
+        Minimum {{control?.errors?.minlength.requiredLength}} characters required for&nbsp;{{fieldName ?
+        fieldName.toLowerCase() :
+        'this field'}}</small></div>
+    <div *ngIf="control?.errors?.pattern && (!control?.errors?.minlength || !control?.errors?.maxlength)"><small
+        class="field-name">
+        Please enter valid&nbsp;{{fieldName ? fieldName.toLowerCase() : 'field value'}}</small></div>
+    <div *ngIf="control?.errors?.min"><small class="field-name">
+        Minimum value should be >= {{control?.errors.min.min}} for&nbsp;{{fieldName ? fieldName.toLowerCase() :
+        'this field'}}</small></div>
+  </div>
+</ng-template>

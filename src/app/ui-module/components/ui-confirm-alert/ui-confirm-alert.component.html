@@ -1,0 +1,13 @@
+<div class="row ui-confirm-alert">
+  <!-- <svg-icon (click)="close()" class="dialog-close-btn" name="clear_round"></svg-icon> -->
+  <div class="col-md-12 svg-section">
+    <!-- <svg-icon class="svg-icon" *ngIf="!alertData?.svgIcon"name="sms_failed"></svg-icon> -->
+    <!-- <svg-icon class="svg-icon" *ngIf="alertData?.svgIcon" [name]="alertData?.svgIcon"></svg-icon> -->
+  </div>
+  <p class="col-md-12 header MB-2">{{alertData.text}}</p>
+  <p class="col-md-12 desclaimer" *ngIf="alertData?.subText">{{alertData.subText}}</p>
+  <div class="col-md-12 btn-section">
+    <button class="btn reject-btn" (click)="reject()">No</button>
+    <button class="btn accept-btn" (click)="accept()">Yes</button>
+  </div>
+</div>

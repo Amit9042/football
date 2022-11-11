@@ -1,0 +1,45 @@
+<div class="auth-container verify-email-container">
+  <div class="auth-box">
+    <div class="row">
+      <div class="col-md-12 auth">
+        <div class="header-container"></div>
+        <div class="auth-form-container">
+          <div class="row auth-form verification">
+            <div class="col-md-12">
+              <div class="verification-image">
+                <img src="assets/images/load.gif">
+              </div>
+              <div class="verification-header">
+                <strong>{{ 'pages.signup.confirmation.accountCreated'  }} </strong>{{
+                'pages.signup.confirmation.codeSent'  }}
+                {{ 'pages.signup.confirmation.inputCode'  }}
+              </div>
+              <div class="form-group form-group-default">
+                <label>{{ 'pages.signup.confirmation.verificationCode'  }}</label>
+                <input maxlength="6" type="text" placeholder="Numerical code" class="form-control PTB-2" id="txtcode"
+                  name="txtcode" [formControl]="validationCode">
+                <app-validation-error [control]="validationCode"
+                  [fieldName]="'pages.signup.confirmation.verificationCode' ">
+                </app-validation-error>
+              </div>
+            </div>
+            <div class="col-md-12 submit-section">
+              <button class="btn btn__PTB-2 submit-btn" type="button" (click)="validateCode()">
+                {{'common.actions.submit'  }}</button>
+            </div>
+          </div>
+        </div>
+        <div class="swarm">
+          {{ 'common.general.SWARM'  }}<br> <!--  <img src="assets/images/swarm.png" /> -->
+        </div>
+        <div class="copy-right-section row">
+          <span class="copy-right">{{ 'common.general.copyright'  }}</span>
+          <div class="right-text-section">
+            <span class="cookie-policy">{{ 'common.general.cookiePolicy'  }}</span>
+            <span class="terms">{{ 'common.general.privacyAndTerms'  }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

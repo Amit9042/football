@@ -4,7 +4,7 @@
   opacity: $opacity;
 }
 
-@mixin flxInputText($color, $backgroundColor) {
+@mixin uiInputText($color, $backgroundColor) {
   color: $color;
   outline: 0;
   background: $backgroundColor;

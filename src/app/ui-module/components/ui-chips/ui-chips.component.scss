@@ -1,0 +1,57 @@
+@import "src/assets/scss/abstracts/abstracts";
+
+::ng-deep {
+  .ui-chips {
+    .p-chips {
+      width: 100%;
+
+      &.#{$program_chip} {
+        .p-chips-token {
+          background: #ACECC9;
+        }
+      }
+
+      &.#{$off_white_chip} {
+        .p-chips-token {
+          background: #F8F8F8;
+          color: #C4C4C4;
+        }
+      }
+
+      .p-chips-multiple-container {
+        padding: 1rem;
+        flex: 0 0 100%;
+        outline: 0;
+        border: none;
+        border-radius: $text_input_radius;
+        background: #ffffff;
+
+        &:not(.p-disabled) {
+          &:hover {
+            border-color: transparent;
+          }
+
+          &.p-focus {
+            box-shadow: none;
+          }
+        }
+
+        .p-chips-token {
+          padding: 1rem;
+          margin-bottom: 0.5rem
+        }
+
+        .p-chips-input-token {
+          padding: 0;
+          flex: 0 0 100%;
+
+          .ui-chip-input {
+            height: $text_input_height - 2rem;
+            padding: $text_input_padding;
+            @include uiInputText($primary_black_color, $white-color);
+          }
+        }
+      }
+    }
+  }
+}

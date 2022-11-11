@@ -1,0 +1,13 @@
+.ui-tag {
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  display: inline-block;
+  &.white {
+    color: #320177;
+    background: #fff;
+  }
+  &.bg-gray {
+    background: #6174a0;
+  }
+}

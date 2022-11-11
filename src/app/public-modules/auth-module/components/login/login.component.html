@@ -1,0 +1,40 @@
+<div class="login-container auth-container">
+  <div class="auth-box">
+    <div class="row">
+      <div class="col-md-12 auth">
+        <div class="header-container">
+          <h2 class="auth-header">{{ 'Login' }}</h2>
+        </div>
+        <div class="auth-form-container">
+          <div class="auth-form">
+            <form [formGroup]="loginForm">
+              <div class="form-field">
+                <label>{{ 'Email' }}</label>
+                <ui-input [formControlName]="loginFormFields.username"></ui-input>
+                <app-validation-error [control]="formControls[loginFormFields.username]" [fieldName]="'Email' ">
+                </app-validation-error>
+              </div>
+              <div class="form-field">
+                <label>{{ 'Password' }}</label>
+                <ui-input [type]="'password'" [formControlName]="loginFormFields.password"></ui-input>
+                <app-validation-error [control]="formControls[loginFormFields.password]" [minLengthCount]="8"
+                  [fieldName]="'Password' "></app-validation-error>
+              </div>
+              <div class="submit-section">
+                <ui-button (onClick)="login()" [buttonLabel]="'Log In'"></ui-button>
+              </div>
+              <div class="reset-password">
+                <a class="reset-link" [routerLink]="['/' + routes.FORGOT_PASSWORD_PATH]">
+                  {{ 'Forgot Password ?' }}</a>
+              </div>
+            </form>
+          </div>
+          <!-- <div class="bottom-account-section">
+            <label>Get your account</label>
+            <ui-button (onClick)="goTosignUp()" [buttonLabel]="'Sign Up'"></ui-button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
