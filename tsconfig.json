@@ -12,7 +12,16 @@
       ],
       "@uiModule/*": [
         "src/app/ui-module/*"
-      ]
+      ],
+      "@playerModule/*": [
+        "src/app/private-modules/player-module/*"
+      ],
+      "@clubModule/*": [
+        "src/app/private-modules/club-module/*"
+      ],
+      "@userModule/*": [
+        "src/app/private-modules/user-module/*"
+      ],
     },
     "noImplicitAny": false,
     "strictPropertyInitialization": false,
