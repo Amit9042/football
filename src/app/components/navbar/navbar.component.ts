@@ -3,12 +3,14 @@ import {
     EventEmitter,
     OnDestroy,
     OnInit,
-    Output
+    Output,
+    ViewChild
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { RouteConstants } from '@sharedModule/constants';
+import { AppConstants, RouteConstants } from '@sharedModule/constants';
 import { SharedService } from '@sharedModule/services';
+import { fromEvent } from 'rxjs';
 
 @Component({
     selector: 'app-navbar',
@@ -16,16 +18,16 @@ import { SharedService } from '@sharedModule/services';
     styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit, OnDestroy {
+
+    @ViewChild('sideBarContainer', { static: true }) sideBarContainer: any;
     // Data variables
     routeConstant = RouteConstants;
-
-    // User Type
 
     // Input and Ouptut methods
     @Output() menuClick = new EventEmitter<boolean>();
 
     // State Variables
-    isShowMenu = true;
+    isSmallSidebar = true;
     isShowDropdown = false;
     isDialogOpen = false;
     mediaQuery = window.matchMedia('(min-width: 320px) and (max-width: 767px)');
@@ -36,6 +38,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
         private router: Router, public dialog: MatDialog) { }
 
     ngOnInit() {
+        fromEvent(this.sideBarContainer.nativeElement, AppConstants.MOUSE_LEAVE_EVENT).subscribe(() => {
+            this.toggleMenu(true);
+        });
+        fromEvent(this.sideBarContainer.nativeElement, AppConstants.MOUSE_ENTER_EVENT).subscribe(() => {
+            this.toggleMenu(false);
+        });
     }
 
     getCurrentRoute = () => {
@@ -44,9 +52,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
         });
     };
 
-    onToggleMenu = (menuName) => {
-        this.isShowMenu = false;
-        this.menuClick.emit(this.isShowMenu);
+    toggleMenu = (value) => {
+        this.isSmallSidebar = value;
+        this.menuClick.emit(this.isSmallSidebar);
     };
 
 
@@ -56,36 +64,18 @@ export class NavbarComponent implements OnInit, OnDestroy {
     };
 
     onSidebarCollapse = () => {
-        this.isShowMenu = !this.isShowMenu;
-        this.menuClick.emit(this.isShowMenu);
+        this.isSmallSidebar = !this.isSmallSidebar;
+        this.menuClick.emit(this.isSmallSidebar);
     };
 
-    onShowDropdown = () => {
-        this.isShowDropdown = true;
-    };
-
-    onHideDropdown = () => {
-        this.isShowDropdown = false;
-    };
-
-    onCloseNav() {
-        if (this.mediaQuery.matches) {
-            this.isShowMenu = true;
-        }
-    }
 
     onRedirectToRoute = (route: string) => {
         if (this.mediaQuery.matches) {
-            this.isShowMenu = true;
+            this.isSmallSidebar = true;
         }
         this.router.navigate(['/' + route]);
     };
 
-
-
-    onClickOutSide() {
-        this.isShowDropdown = false;
-    }
 
     onError = (event) => {
         event.target.src = 'assets/images/svg_files/userProfile.svg';
@@ -94,7 +84,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.clearSub();
     }
-
 
     clearSub = () => {
     };
@@ -106,4 +95,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
         }
         return route === this.currentRoute;
     };
+
+    logout() {
+        this.sharedService.logout();
+    }
 }

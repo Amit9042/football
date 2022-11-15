@@ -23,4 +23,6 @@ export class RoutePathConstants {
   /* DASHBOARD MODULE  */
   public static readonly DASHBOARD = 'dashboard';
 
+  /* USER */
+  public static readonly USER = 'user';
 }

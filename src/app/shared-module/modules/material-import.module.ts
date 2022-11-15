@@ -4,6 +4,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   imports: [
     CommonModule,
@@ -11,6 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatProgressBarModule,
     MatIconModule,
     MatSidenavModule,
+    MatTooltipModule,
 
   ],
   declarations: [],
@@ -19,6 +21,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatProgressBarModule,
     MatIconModule,
     MatSidenavModule,
+    MatTooltipModule,
   ]
 })
 export class MaterialImportModule { }

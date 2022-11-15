@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { EncryptionFunctions } from '@sharedModule/functions';
-import { AppStorageConstants } from '@sharedModule/constants';
+import { AppStorageConstants, RouteConstants } from '@sharedModule/constants';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class SharedService {
   private initiateSnackBar: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private isLoggedInUser: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
+  constructor(private router: Router) {}
+  
   // To get & set loader status
   getLoader(): Observable<boolean> {
     return this.isLoading.asObservable();
@@ -55,5 +58,7 @@ export class SharedService {
 
   logout() {
     // TO DO
+    this.setLoggedInUserStatus(false);
+    this.router.navigate([`/${RouteConstants.LOGIN_PATH}`]);
   }
 }

@@ -13,6 +13,9 @@ const routes: Routes = [
     path: RoutePathConstants.AUTH, loadChildren: () => import('./public-modules/auth-module/auth.module').then(m => m.AuthModule)
   },
   {
+    path: RoutePathConstants.USER, loadChildren: () => import('./private-modules/user-module/user.module').then(m => m.UserModule)
+  },
+  {
     path: RoutePathConstants.DASHBOARD, loadChildren: () => import('./private-modules/dashboard-module/dashboard.module').then(m => m.DashboardModule)
   },
 ];

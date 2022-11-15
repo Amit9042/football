@@ -8,4 +8,7 @@ export class RouteConstants {
   public static readonly VERIFY_EMAIL_PATH = `${RoutePathConstants.AUTH}/${RoutePathConstants.VERIFY_EMAIL}`;
 
   public static readonly DASHBOARD_PATH = `${RoutePathConstants.DASHBOARD}`;
+
+  /* USER PATH  */
+  public static readonly USER_LIST = `${RoutePathConstants.USER}/${RoutePathConstants.LIST}`;
 }
