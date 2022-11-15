@@ -1,9 +1,9 @@
 export interface LoginModel {
-    username: string;
+    user_name: string;
     password: string;
 }
 
 export const LoginFormFields = {
-    username: 'username',
+    user_name: 'user_name',
     password: 'password',
 }

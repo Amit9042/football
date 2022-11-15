@@ -39,10 +39,10 @@ export class ForgotPasswordComponent implements OnInit {
         const email = formValue.email;
         this.authService.sendEmail(email).then(
             () => {
-                this.sharedService.setToastMsg({
-                    severity: 'success',
-                    detail: 'success',
-                });
+                // this.sharedService.setToastMsg({
+                //     severity: 'success',
+                //     detail: 'success',
+                // });
                 this.router.navigate([`${RouteConstants.RESET_PASSWORD_PATH}`], {
                     queryParams:
                         { [RouteQueryParams.EMAIL]: email }

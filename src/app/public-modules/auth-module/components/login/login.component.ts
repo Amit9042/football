@@ -19,10 +19,8 @@ export class LoginComponent implements OnInit {
   loginFormFields = LoginFormFields;
 
   constructor(
-    private router: Router,
-    private sharedService: SharedService,
-    private authService: AuthService,
-    private formBuilder: FormBuilder
+    private router: Router, private sharedService: SharedService,
+    private authService: AuthService, private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -31,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   initForm(): void {
     this.loginForm = this.formBuilder.group({
-      [LoginFormFields.username]: ['', [Validators.required, Validators.pattern(AppRegexConstants.EMAIL_ADDRESS)]],
+      [LoginFormFields.user_name]: ['', [Validators.required,]], /* Validators.pattern(AppRegexConstants.EMAIL_ADDRESS) */
       [LoginFormFields.password]: ['', AuthValidationConstants.PASSWORD_VALIDATION],
     })
   }
@@ -41,17 +39,17 @@ export class LoginComponent implements OnInit {
       this.loginForm.markAllAsTouched();
       return;
     }
-    this.sharedService.setLoader(true);
     const formValue: LoginModel = this.loginForm.value;
     this.authService.login(formValue).subscribe((response) => {
-      console.log(response);
-      this.redircetToNextPage();
-      this.sharedService.setToastMsg({
-        severity: 'success',
-        detail: 'Login Successfully',
-      });
-    },
-    );
+      let msg;
+      if (response) {
+        msg = 'Login Successfully';
+        this.redircetToNextPage();
+      } else {
+        msg = 'Please enter valid credentials';
+      }
+      this.sharedService.setSnackBar(msg);
+    });
   }
 
   redircetToNextPage() {

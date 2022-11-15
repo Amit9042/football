@@ -5,8 +5,8 @@ export interface UserModel {
     first_name: string;
     last_name: string;
     user_name: string;
+    password?: string;
 }
-
 
 export const UserFormFields = {
     id: "id",

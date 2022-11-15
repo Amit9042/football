@@ -19,12 +19,7 @@
         justify-content: center;
         flex-direction: column;
         margin: 2rem 0;
-        img {
-          @include respond("phone") {
-            height: 5rem;
-          }
-        }
-        h1 {
+        .auth-header {
           font-weight: 200;
           color: #b4c1d9;
           letter-spacing: 0.063rem;

@@ -10,8 +10,8 @@
             <form [formGroup]="loginForm">
               <div class="form-field">
                 <label>{{ 'Email' }}</label>
-                <ui-input [formControlName]="loginFormFields.username"></ui-input>
-                <app-validation-error [control]="formControls[loginFormFields.username]" [fieldName]="'Email' ">
+                <ui-input [formControlName]="loginFormFields.user_name"></ui-input>
+                <app-validation-error [control]="formControls[loginFormFields.user_name]" [fieldName]="'Email' ">
                 </app-validation-error>
               </div>
               <div class="form-field">

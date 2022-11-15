@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { HttpMethodsTypeEnum } from '@sharedModule/constants';
 import { SharedService } from '@sharedModule/services';
+import { Observable } from 'rxjs';
 import { HttpHelperService } from '../services/http-helper.service';
 
 @Injectable({
@@ -18,8 +18,8 @@ export class APIManager extends HttpHelperService {
         methodType: HttpMethodsTypeEnum,
         url: string,
         params = {},
-        showLoader = true,
         showToaster = true,
+        showLoader = true,
         httpOptions = this.httpHeaders,
     ): Observable<any> {
         if (showLoader) {
@@ -29,8 +29,8 @@ export class APIManager extends HttpHelperService {
             methodType,
             url,
             params,
-            showLoader,
             showToaster,
+            showLoader,
             httpOptions,
         );
     }

@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class SharedService {
 
   private isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  private initiateToast: BehaviorSubject<any> = new BehaviorSubject<any>({});
+  private initiateSnackBar: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   // To get & set loader status
   getLoader(): Observable<boolean> {
@@ -15,15 +15,17 @@ export class SharedService {
   }
 
   setLoader(val: boolean): void {
+    console.log(val, 'setLoader');
+    
     this.isLoading.next(val);
   }
 
   // To get & set toast message
-  getToastMsg(): Observable<any> {
-    return this.initiateToast.asObservable();
+  getSnackBar(): Observable<string> {
+    return this.initiateSnackBar.asObservable();
   }
 
-  setToastMsg(message: any): void {
-    this.initiateToast.next(message);
+  setSnackBar(val: string): void {
+    this.initiateSnackBar.next(val);
   }
 }

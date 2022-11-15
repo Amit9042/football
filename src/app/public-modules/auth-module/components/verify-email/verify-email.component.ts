@@ -40,17 +40,17 @@ export class VerifyEmailComponent implements OnInit {
     }
     const confirmSignup = this.authService.confirmSignup(this.email.value, this.validationCode.value);
     confirmSignup.then(() => {
-      this.sharedService.setToastMsg({
-        severity: 'success',
-        detail: 'success',
-      });
+      // this.sharedService.setToastMsg({
+      //   severity: 'success',
+      //   detail: 'success',
+      // });
       this.redirectToPath(RouteConstants.LOGIN_PATH);
     })
     confirmSignup.catch(error => {
-      this.sharedService.setToastMsg({
-        severity: 'error',
-        detail: error.message
-      });
+      // this.sharedService.setSnackBar({
+      //   severity: 'error',
+      //   detail: error.message
+      // });
       console.error('error confirming signing up:', error);
     });
   }

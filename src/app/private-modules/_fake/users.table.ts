@@ -27,7 +27,8 @@ export class UsersTable {
       "email": "savaniyaamit@gmail.com",
       "first_name": "amit",
       "last_name": "savaniya",
-      "user_name": "amit_savaniya"
+      "user_name": "amit_savaniya",
+      "password": 'Admin@123'
     }
   ]
 }

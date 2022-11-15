@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RouteConstants, RouteQueryParams } from '@sharedModule/constants';
+import { RouteConstants } from '@sharedModule/constants';
 import { SharedService } from '@sharedModule/services';
 import { UserFormFields, UserModel } from '@userModule/models';
-import { UserService } from '@userModule/services';
 import { AuthValidationConstants } from '../../constants/auth.validation';
 import { AuthService } from '../../services/auth.service';
 
@@ -20,10 +19,8 @@ export class SignupComponent implements OnInit {
   routes = RouteConstants;
 
   constructor(
-    private userService: UserService,
     private sharedService: SharedService,
-    private router: Router, private formBuilder: FormBuilder,
-    private authService: AuthService) {
+    private router: Router, private formBuilder: FormBuilder, private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -59,10 +56,7 @@ export class SignupComponent implements OnInit {
       const formValue: UserModel = this.signupForm.value;
       console.log(formValue);
       this.authService.signup(formValue).subscribe(() => {
-        this.sharedService.setToastMsg({
-          severity: 'success',
-          detail: 'success',
-        });
+        this.sharedService.setSnackBar('success');
         this.redirectToLogin();
       })
     }

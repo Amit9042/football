@@ -67,21 +67,17 @@ export class ResetPasswordComponent implements OnInit {
     this.authService.forgotPasswordSubmit(formValue)
     .then(
       () => {
-        this.sharedService.setToastMsg({
-          severity: 'success',
-          detail: 'success',
-        });
+        // this.sharedService.setToastMsg({
+        //   severity: 'success',
+        //   detail: 'success',
+        // });
         this.router.navigate([`/${RouteConstants.LOGIN_PATH}`]);
       },
     )
     .catch(
       (error) => {
-        this.sharedService.setToastMsg({
-          severity: 'error',
-          detail: error.message
-        });
+        this.sharedService.setSnackBar('error');
         console.error(error);
-
       }
     );
   }

@@ -18,10 +18,12 @@ export class HttpHelperService {
         methodType: HttpMethodsTypeEnum,
         url: string,
         params = {},
-        showLoader: boolean,
         showToaster: boolean,
+        showLoader: boolean,
         httpOptions,
     ) {
+        console.log(showLoader, 'showLoader');
+        
         return this.apiCall(methodType, url, params, httpOptions).pipe(
             tap((response: any) => {
                 // this.setToastMessage(response, showToaster);
@@ -39,7 +41,7 @@ export class HttpHelperService {
     private setToastMessage(res: any, show?: boolean): void {
         const msg = res && res.message ? res.message : '';
         if (show && msg) {
-            this.sharedService.setToastMsg(msg);
+            this.sharedService.setSnackBar(msg);
         }
     }
 
