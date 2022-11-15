@@ -8,6 +8,7 @@ import { AuthService } from '@authModule/services';
 import { AppRegexConstants, RouteConstants } from '@sharedModule/constants';
 import { SharedService } from '@sharedModule/services';
 import { UserFormFields, UserModel } from '@userModule/models';
+import { UserService } from '@userModule/services';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -18,16 +19,32 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   signupFormFields = UserFormFields;
   routes = RouteConstants;
+  userModel: UserModel;
 
   constructor(
     public dialogRef: MatDialogRef<SignupComponent>,
     @Inject(MAT_DIALOG_DATA) public signupParams: SignupParams,
     private sharedService: SharedService,
+    private userService: UserService,
     private router: Router, private formBuilder: FormBuilder, private authService: AuthService) {
   }
 
   ngOnInit() {
     this.initializeForm();
+    if (this.signupParams.isModal) {
+      this.getUserDetail();
+    }
+  }
+
+  getUserDetail() {
+    this.userService.getUserById(this.signupParams.id).subscribe(userModel => {
+      this.userModel = userModel;
+      this.fillForm();
+    })
+  }
+
+  fillForm() {
+    this.signupForm.reset(this.userModel);
   }
 
   initializeForm() {
@@ -61,7 +78,11 @@ export class SignupComponent implements OnInit {
       console.log(formValue);
       this.authService.signup(formValue).subscribe(() => {
         this.sharedService.setSnackBar('success');
-        this.redirectToLogin();
+        if (this.signupParams.isModal) {
+          this.dialogRef.close(formValue);
+        } else {
+          this.redirectToLogin();
+        }
       })
     }
   }

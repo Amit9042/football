@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { SignupComponent } from '@authModule/components';
+import { SignupParams } from '@authModule/models';
 import { AppConstants } from '@sharedModule/constants';
 import { primengSortingFunction } from '@sharedModule/functions';
-import { SharedDialogService } from '@sharedModule/services';
+import { ConfirmAlertParams, UIConfirmAlertComponent } from '@uiModule/components';
 import { UserColumns, UserColumnsList } from '@userModule/constants';
 import { UserFormFields, UserModel } from '@userModule/models';
 import { UserService } from '@userModule/services';
@@ -22,7 +24,8 @@ export class UserListComponent implements OnInit {
   @ViewChild('userTable', { static: false }) userTable: Table;
 
   constructor(private userService: UserService,
-    private sharedDialogService: SharedDialogService) { }
+    private matDialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.getUserList();
@@ -42,19 +45,43 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  openUserModal(id = null) {
-    let dialogRef = this.sharedDialogService.openDialog(SignupComponent, {
-      panelClass: ['left-modal', 'content_pad_0', 'animate__animated', 'animate__slideInLeft'],
-      position: { left: '0', top: '0' },
-      data: {
-        [UserFormFields.id]: id
-      },
+  openUserModal(id = '') {
+    const json: SignupParams = {
+      id: id,
+      isModal: true
+    }
+    let dialogRef = this.matDialog.open(SignupComponent, {
+      panelClass: ['right-modal', 'content_pad_0', 'animate__animated', 'animate__slideInRight'],
+      position: { right: '0', top: '0' },
+      data: json,
     })
     dialogRef.afterClosed().subscribe((userModel: UserModel) => {
       if (userModel) {
         this.getUserList();
       }
     });
+  }
+
+  deleteUser(id) {
+    let dialogRef = this.matDialog.open(UIConfirmAlertComponent, {
+      panelClass: ['ui-confirm-alert-container'],
+      data: {
+        text: 'Are you sure to want proceed ?',
+        subText: 'User will be deleted',
+      }
+    })
+    dialogRef.afterClosed().subscribe((confirmAlertParams: ConfirmAlertParams) => {
+      if (confirmAlertParams?.action === AppConstants.ACCEPT) {
+        this.callDeleteAPI(id)
+      }
+    });
+  }
+
+  callDeleteAPI(id) {
+    this.userService.deleteUser(id).subscribe(ulist => {
+      console.log(ulist);
+      this.getUserList();
+    })
   }
 
   customSort(event) {

@@ -77,4 +77,13 @@
   path {
     fill: #ffffff;
   }
+
+  &.primary {
+    background: #3f51b5;
+    color: #ffffff;
+    border-color: #ffffff;
+    path {
+      fill: #3f51b5;
+    }
+  }
 }

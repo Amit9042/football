@@ -7,6 +7,7 @@ export class APIConstants {
   /* USER MODULE */
   public static readonly SIGN_UP = `${BASE_URL}/${APIPathConstants.USER}`;
   public static readonly USER_LIST = `${BASE_URL}/${APIPathConstants.USER}`;
+  public static readonly USER_BY_ID = `${BASE_URL}/${APIPathConstants.USER}`;
   
 
 

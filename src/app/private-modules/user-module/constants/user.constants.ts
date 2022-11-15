@@ -9,16 +9,16 @@ export const UserColumns = {
 
 export const UserColumnsList = [
     {
-        displayName: 'Email',
-        columnName: UserColumns.email
-    },
-    {
         displayName: 'First Name',
         columnName: UserColumns.first_name
     },
     {
         displayName: 'Last Name',
         columnName: UserColumns.last_name
+    },
+    {
+        displayName: 'Email',
+        columnName: UserColumns.email
     },
     {
         displayName: 'User Name',

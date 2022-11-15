@@ -1,5 +1,9 @@
 <div class="user-list-section list-layout-section">
     <div class="row">
+        <div class="row col-md-12 add-btn-section">
+            <h1>User List</h1>
+            <ui-button [buttonSize]="'small'" [styleClass]="'primary'" (onClick)="openUserModal()" [buttonLabel]="'Add User'"></ui-button>
+        </div>
         <div class="col-md-12 user-list  table-list">
             <p-table #userTable (sortFunction)="customSort($event)" [customSort]="true" [value]="userList"
                 [columns]="columnsArray">
@@ -26,8 +30,10 @@
                         <td *ngFor="let col of columns">
                             <ng-container [ngSwitch]="col.columnName">
                                 <div class="td-{{columnNames.actions}}" *ngSwitchCase="columnNames.actions">
-                                    <mat-icon (click)="openUserModal(user[col.id])" [matTooltip]="'Edit'" [color]="'primary'" class="edit-icon">edit</mat-icon>
-                                    <mat-icon [matTooltip]="'Delete'" [color]="'warn'" class="delete-icon">delete</mat-icon>
+                                    <mat-icon (click)="openUserModal(user['id'])" [matTooltip]="'Edit'"
+                                        [color]="'primary'" class="edit-icon">edit</mat-icon>
+                                    <mat-icon (click)="deleteUser(user['id'])" [matTooltip]="'Delete'" [color]="'warn'"
+                                        class="delete-icon">delete</mat-icon>
                                 </div>
                                 <div class="td-{{col.columnName}}" *ngSwitchDefault>
                                     {{user[col.columnName]}}

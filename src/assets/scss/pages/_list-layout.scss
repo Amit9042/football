@@ -1,6 +1,12 @@
 .list-layout-section {
   padding: 2rem;
   margin-top: 3rem;
+  .add-btn-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
   .table-list {
     .p-datatable .p-datatable-thead > tr > th {
       &.th-actions {

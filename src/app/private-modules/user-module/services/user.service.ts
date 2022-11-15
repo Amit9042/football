@@ -21,4 +21,18 @@ export class UserService {
       APIConstants.USER_LIST,
     );
   }
+
+  getUserById(userId): Observable<UserModel> {
+    return this.apiManager.httpHelperMethod(
+      HttpMethodsTypeEnum.GET,
+      `${APIConstants.USER_BY_ID}/${userId}`,
+    );
+  }
+
+  deleteUser(userId): Observable<UserModel> {
+    return this.apiManager.httpHelperMethod(
+      HttpMethodsTypeEnum.DELETE,
+      `${APIConstants.USER_BY_ID}/${userId}`,
+    );
+  }
 }
