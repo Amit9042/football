@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { RouteConstants } from '@sharedModule/constants';
+import { AuthValidationConstants } from '@authModule/constants';
+import { SignupParams } from '@authModule/models';
+import { AuthService } from '@authModule/services';
+import { AppRegexConstants, RouteConstants } from '@sharedModule/constants';
 import { SharedService } from '@sharedModule/services';
 import { UserFormFields, UserModel } from '@userModule/models';
-import { AuthValidationConstants } from '../../constants/auth.validation';
-import { AuthService } from '../../services/auth.service';
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -19,6 +20,8 @@ export class SignupComponent implements OnInit {
   routes = RouteConstants;
 
   constructor(
+    public dialogRef: MatDialogRef<SignupComponent>,
+    @Inject(MAT_DIALOG_DATA) public signupParams: SignupParams,
     private sharedService: SharedService,
     private router: Router, private formBuilder: FormBuilder, private authService: AuthService) {
   }
@@ -32,7 +35,7 @@ export class SignupComponent implements OnInit {
       [UserFormFields.id]: [null],
       [UserFormFields.first_name]: ['', [Validators.required]],
       [UserFormFields.last_name]: ['', [Validators.required]],
-      [UserFormFields.email]: ['', [Validators.required]],
+      [UserFormFields.email]: ['', [Validators.required, Validators.pattern(AppRegexConstants.EMAIL_ADDRESS)]],
       [UserFormFields.user_name]: ['', [Validators.required]],
       [UserFormFields.password]: ['', AuthValidationConstants.PASSWORD_VALIDATION],
       [UserFormFields.confirmPassword]: ['', Validators.required],

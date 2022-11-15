@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { UserRoutingModule } from './user-routing.module';
-import { UserListComponent } from './components/user-list/user-list.component';
+import { NgModule } from '@angular/core';
+import { AuthModule } from '@authModule/auth.module';
 import { SharedModule } from '@sharedModule/shared.module';
-
+import { UserListComponent } from '@userModule/components';
+import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
   declarations: [
-    UserListComponent
+    UserListComponent,
   ],
   imports: [
+    AuthModule,
     CommonModule,
     UserRoutingModule,
     SharedModule,

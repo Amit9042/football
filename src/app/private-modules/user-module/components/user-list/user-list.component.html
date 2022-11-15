@@ -26,7 +26,7 @@
                         <td *ngFor="let col of columns">
                             <ng-container [ngSwitch]="col.columnName">
                                 <div class="td-{{columnNames.actions}}" *ngSwitchCase="columnNames.actions">
-                                    <mat-icon [matTooltip]="'Edit'" [color]="'primary'" class="edit-icon">edit</mat-icon>
+                                    <mat-icon (click)="openUserModal(user[col.id])" [matTooltip]="'Edit'" [color]="'primary'" class="edit-icon">edit</mat-icon>
                                     <mat-icon [matTooltip]="'Delete'" [color]="'warn'" class="delete-icon">delete</mat-icon>
                                 </div>
                                 <div class="td-{{col.columnName}}" *ngSwitchDefault>
