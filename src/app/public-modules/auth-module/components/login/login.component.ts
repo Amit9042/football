@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
       let msg;
       if (response) {
         msg = 'Login Successfully';
+        this.sharedService.setLoggedInUserStatus(true);
         this.redircetToNextPage();
       } else {
         msg = 'Please enter valid credentials';

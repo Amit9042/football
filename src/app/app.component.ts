@@ -15,8 +15,11 @@ export class AppComponent {
   visibility = AppVisibilityConstants.HIDE_HEADER_HIDE_SIDEBAR_SHOW_FOOTER;
   snackBarSubscriber$: Subscription;
   loaderSubscriber$: Subscription;
+  loggedInStatusSubscriber$: Subscription;
   showLoader = false;
 
+  panelMove = true;
+  isLoggedIn = false;
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -31,13 +34,19 @@ export class AppComponent {
   initialize = () => {
     this.subscribeLoader();
     this.subscribeSnackbar();
+    this.subscribeLoggedInStatus();
   };
 
   onActivate() {
-    setTimeout(() => {
-      scrollToTop()
-    }, 500);
+    setTimeout(() => { scrollToTop() }, 500);
   }
+
+  subscribeLoggedInStatus = () => {
+    this.loggedInStatusSubscriber$ = this.sharedService.getLoggedInUserStatus()
+      .subscribe((value) => {
+        this.isLoggedIn = value;
+      });
+  };
 
   subscribeLoader = () => {
     this.loaderSubscriber$ = this.sharedService.getLoader().subscribe((flag) => {
@@ -48,13 +57,11 @@ export class AppComponent {
   };
 
   subscribeSnackbar = () => {
-    this.snackBarSubscriber$ = this.sharedService
-      .getSnackBar()
-      .subscribe((message) => {
-        if (message) {
-          this.openSnackBar(message);
-        }
-      });
+    this.snackBarSubscriber$ = this.sharedService.getSnackBar().subscribe((message) => {
+      if (message) {
+        this.openSnackBar(message);
+      }
+    });
   };
 
   openSnackBar(message: string) {
@@ -70,5 +77,6 @@ export class AppComponent {
   ngOnDestroy(): void {
     this.snackBarSubscriber$?.unsubscribe();
     this.loaderSubscriber$?.unsubscribe();
+    this.loggedInStatusSubscriber$?.unsubscribe();
   }
 }

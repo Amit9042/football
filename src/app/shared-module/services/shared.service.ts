@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { EncryptionFunctions } from '@sharedModule/functions';
+import { AppStorageConstants } from '@sharedModule/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,7 @@ export class SharedService {
 
   private isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private initiateSnackBar: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private isLoggedInUser: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   // To get & set loader status
   getLoader(): Observable<boolean> {
@@ -16,7 +19,7 @@ export class SharedService {
 
   setLoader(val: boolean): void {
     console.log(val, 'setLoader');
-    
+
     this.isLoading.next(val);
   }
 
@@ -27,5 +30,26 @@ export class SharedService {
 
   setSnackBar(val: string): void {
     this.initiateSnackBar.next(val);
+  }
+
+  // To get & set loggedin status
+  getLoggedInUserStatus() {
+    if (!this.isLoggedInUser.value) {
+      this.isLoggedInUser.next(
+        EncryptionFunctions.DECRYPT_OBJ(
+          localStorage.getItem(AppStorageConstants.LOGIN_STATUS),
+          AppStorageConstants.LOGIN_STATUS
+        )
+      );
+    }
+    return this.isLoggedInUser.asObservable();
+  }
+
+  setLoggedInUserStatus(value: boolean) {
+    localStorage.setItem(
+      AppStorageConstants.LOGIN_STATUS,
+      EncryptionFunctions.ENCRYPT_OBJ(value)
+    );
+    this.isLoggedInUser.next(value);
   }
 }
