@@ -5,9 +5,9 @@ import { RoutePathConstants } from '@sharedModule/constants';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: RoutePathConstants.EMPTY, redirectTo: `${RoutePathConstants.HOME}`, pathMatch: RoutePathConstants.FULL_PATH_MATCH },
+  { path: RoutePathConstants.EMPTY, redirectTo: `${RoutePathConstants.AUTH}`, pathMatch: RoutePathConstants.FULL_PATH_MATCH },
   {
-    path: RoutePathConstants.HOME, component: LoginComponent
+    path: RoutePathConstants.HOME, component: HomeComponent
   },
   {
     path: RoutePathConstants.AUTH, loadChildren: () => import('./public-modules/auth-module/auth.module').then(m => m.AuthModule)

@@ -32,6 +32,7 @@ export class SignupComponent implements OnInit {
       [UserFormFields.id]: [null],
       [UserFormFields.first_name]: ['', [Validators.required]],
       [UserFormFields.last_name]: ['', [Validators.required]],
+      [UserFormFields.email]: ['', [Validators.required]],
       [UserFormFields.user_name]: ['', [Validators.required]],
       [UserFormFields.password]: ['', AuthValidationConstants.PASSWORD_VALIDATION],
       [UserFormFields.confirmPassword]: ['', Validators.required],

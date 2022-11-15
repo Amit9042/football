@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AppConstants } from '@sharedModule/constants';
+import { primengSortingFunction } from '@sharedModule/functions';
+import { UserColumns, UserColumnsList } from '@userModule/constants';
+import { UserModel } from '@userModule/models';
+import { UserService } from '@userModule/services';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-user-list',
@@ -7,9 +13,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
-  constructor() { }
+  userList: UserModel[] = [];
+  columnsArray = UserColumnsList;
+  columnNames = UserColumns;
+  appConst = AppConstants;
+  @ViewChild('userTable', { static: false }) userTable: Table;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.getUserList();
   }
 
+  getUserList() {
+    this.userService.getUserList().subscribe((ulist) => {
+      this.userList = ulist.map(e => {
+        return {
+          first_name: e.first_name,
+          last_name: e.last_name,
+          user_name: e.user_name,
+          email: e.email,
+          id: e.id,
+        }
+      });
+    });
+  }
+
+  openUserModal(id = null) {
+  }
+
+  customSort(event) {
+    if (this.userTable) {
+      this.userTable.value.sort(primengSortingFunction(event));
+    }
+  }
 }
+

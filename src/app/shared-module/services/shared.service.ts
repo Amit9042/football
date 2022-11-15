@@ -13,8 +13,8 @@ export class SharedService {
   private initiateSnackBar: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private isLoggedInUser: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private router: Router) {}
-  
+  constructor(private router: Router) { }
+
   // To get & set loader status
   getLoader(): Observable<boolean> {
     return this.isLoading.asObservable();
@@ -33,6 +33,11 @@ export class SharedService {
 
   setSnackBar(val: string): void {
     this.initiateSnackBar.next(val);
+  }
+
+
+  isLoggedIn(): boolean {
+    return this.isLoggedInUser.value ? true : false;
   }
 
   // To get & set loggedin status

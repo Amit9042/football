@@ -44,15 +44,13 @@ export class AppComponent {
   }
 
   subscribeLoggedInStatus = () => {
-    this.loggedInStatusSubscriber$ = this.sharedService.getLoggedInUserStatus()
-      .subscribe((value) => {
-        this.isLoggedIn = value;
-      });
+    this.loggedInStatusSubscriber$ = this.sharedService.getLoggedInUserStatus().subscribe((value) => {
+      this.isLoggedIn = value;
+    });
   };
 
   subscribeLoader = () => {
     this.loaderSubscriber$ = this.sharedService.getLoader().subscribe((flag) => {
-      console.log(flag, 'flagflagflag');
       this.showLoader = flag;
       this.cdr.detectChanges();
     });
@@ -67,11 +65,10 @@ export class AppComponent {
   };
 
   openSnackBar(message: string) {
-    console.log(message);
     const configSnackBar = new MatSnackBarConfig();
     configSnackBar.verticalPosition = 'top';
     configSnackBar.horizontalPosition = 'right';
-    configSnackBar.duration = 999999999999999;
+    configSnackBar.duration = 1500;
     configSnackBar.panelClass = ['snackbar'];
     this.snackBar.open(message, 'Close', configSnackBar);
   }
