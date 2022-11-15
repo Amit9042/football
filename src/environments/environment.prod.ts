@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  isMockEnabled: false,
+  BASE_URL: '',
 };

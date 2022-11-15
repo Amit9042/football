@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BASE_URL: '',
+  isMockEnabled: true,
+  BASE_URL: 'api',
 };
 
 /*

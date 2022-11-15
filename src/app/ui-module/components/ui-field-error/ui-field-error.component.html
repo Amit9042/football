@@ -1,5 +1,5 @@
 <ng-container *ngIf="erroMsg; else elseBlock">
-  <div class="validation-error">{{erroMsg}}</div>
+  <div class="validation-error"><small>{{erroMsg}}</small></div>
 </ng-container>
 <ng-template #elseBlock>
   <div class="validation-error" *ngIf="control?.errors && (control.dirty || control.touched)">

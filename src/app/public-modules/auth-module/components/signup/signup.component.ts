@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AppConstants, AppRegexConstants, RouteConstants, RouteQueryParams } from '@sharedModule/constants';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RouteConstants, RouteQueryParams } from '@sharedModule/constants';
 import { SharedService } from '@sharedModule/services';
+import { UserFormFields, UserModel } from '@userModule/models';
+import { UserService } from '@userModule/services';
 import { AuthValidationConstants } from '../../constants/auth.validation';
-import { SignupFormFields, SignupModel } from '../../models/signup.model';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -15,10 +16,11 @@ import { AuthService } from '../../services/auth.service';
 export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
-  signupFormFields = SignupFormFields;
+  signupFormFields = UserFormFields;
   routes = RouteConstants;
 
   constructor(
+    private userService: UserService,
     private sharedService: SharedService,
     private router: Router, private formBuilder: FormBuilder,
     private authService: AuthService) {
@@ -30,31 +32,22 @@ export class SignupComponent implements OnInit {
 
   initializeForm() {
     this.signupForm = this.formBuilder.group({
-      [SignupFormFields.firstname]: ['', [Validators.required]],
-      [SignupFormFields.lastname]: ['', [Validators.required]],
-      [SignupFormFields.username]: ['', [Validators.required, Validators.pattern(AppRegexConstants.EMAIL_ADDRESS)]],
-      [SignupFormFields.password]: ['', AuthValidationConstants.PASSWORD_VALIDATION],
-      [SignupFormFields.confirmPassword]: ['', Validators.required],
-      [SignupFormFields.communicationLang]: [null, [Validators.required]],
-      [SignupFormFields.termsAndCondition]: [false, [Validators.requiredTrue]],
-      [SignupFormFields.privacyPolicy]: [false, [Validators.requiredTrue]],
+      [UserFormFields.id]: [null],
+      [UserFormFields.first_name]: ['', [Validators.required]],
+      [UserFormFields.last_name]: ['', [Validators.required]],
+      [UserFormFields.user_name]: ['', [Validators.required]],
+      [UserFormFields.password]: ['', AuthValidationConstants.PASSWORD_VALIDATION],
+      [UserFormFields.confirmPassword]: ['', Validators.required],
     }, { validator: this.checkPasswrodValidation })
   }
 
   checkPasswrodValidation(signupForm: FormGroup): { [key: string]: any } | null {
-    const password = signupForm.controls[SignupFormFields.password].value;
-    const confirmPassword = signupForm.controls[SignupFormFields.confirmPassword].value;
+    const password = signupForm.controls[UserFormFields.password].value;
+    const confirmPassword = signupForm.controls[UserFormFields.confirmPassword].value;
     if ((password || confirmPassword) && confirmPassword !== password) {
       return { passwordMismatch: true };
     }
     return null;
-  }
-
-  goToVerifyEmail() {
-    const json = {
-      [RouteQueryParams.EMAIL]: this.email
-    };
-    this.router.navigate([RouteConstants.VERIFY_EMAIL_PATH], { queryParams: json });
   }
 
   onSignup() {
@@ -63,23 +56,20 @@ export class SignupComponent implements OnInit {
       return;
     }
     if (this.signupForm.valid) {
-      const formValue: SignupModel = this.signupForm.value;
-      const signupPromise = this.authService.signup(formValue);
-      signupPromise.then(result => {
+      const formValue: UserModel = this.signupForm.value;
+      console.log(formValue);
+      this.authService.signup(formValue).subscribe(() => {
         this.sharedService.setToastMsg({
           severity: 'success',
           detail: 'success',
         });
-        this.goToVerifyEmail();
+        this.redirectToLogin();
       })
-      signupPromise.catch(error => {
-        this.sharedService.setToastMsg({
-          severity: 'error',
-          detail: error.message
-        });
-        console.error('error signing up:', error);
-      });
     }
+  }
+
+  redirectToLogin() {
+    this.router.navigate([RouteConstants.LOGIN_PATH]);
   }
 
   public get formControls(): { [key: string]: AbstractControl } {
@@ -87,6 +77,6 @@ export class SignupComponent implements OnInit {
   }
 
   public get email(): string {
-    return this.formControls[SignupFormFields.username].value;
+    return this.formControls[UserFormFields.user_name].value;
   }
 }

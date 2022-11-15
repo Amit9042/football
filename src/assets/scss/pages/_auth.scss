@@ -41,14 +41,8 @@
         @include respond("phone") {
           padding: 2rem;
         }
-        .welcome-label {
-          color: #ffffff;
-          font-weight: normal;
-          font-size: 1.6rem;
-          margin-bottom: 2rem;
-        }
         .auth-form {
-          margin-bottom: 8rem;
+          margin-bottom: 3rem;
           &.verification {
             .verification-image {
               text-align: center;
@@ -89,21 +83,10 @@
             }
           }
           .submit-section {
-            margin-top: 2rem;
+            margin: 3rem 0 2rem 0;
             .btn {
               &:disabled {
                 opacity: 0.65;
-              }
-            }
-            .submit-btn {
-              width: 100%;
-              color: #ffffff;
-              background: #101010;
-              border-radius: 8px;
-              font-weight: 600;
-              font-size: 1.6rem;
-              &.bg-green {
-                background-color: #84d584;
               }
             }
           }
@@ -117,43 +100,6 @@
               }
             }
           }
-          .smallpadding {
-            position: relative;
-            @include respond("phone") {
-              padding: 0;
-            }
-          }
-          .password-description {
-            margin-top: 1rem;
-            margin-bottom: 2rem;
-            color: #869efd;
-            font-size: 1.4rem;
-          }
-          .lang-section {
-            .radio-section {
-              display: flex;
-              align-items: center;
-            }
-            .radio {
-              &.left {
-                margin-right: 1rem;
-              }
-            }
-            .p-radiobutton .p-radiobutton-box {
-              box-shadow: none !important;
-              border-color: #ffffff !important;
-              background: transparent !important;
-            }
-            .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
-              background-color: #ffffff !important;
-              transform: translateZ(0) scale(-0.8) !important;
-            }
-            .p-radiobutton-label {
-              display: block;
-              color: #869efd;
-              font-size: 1.4rem;
-            }
-          }
           .reset-password {
             font-family: $font_family_Roboto;
             text-align: right;
@@ -164,25 +110,10 @@
               text-decoration: underline;
             }
           }
-          .term-conditions {
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            &__text {
-              color: #887ff5;
-              margin-left: 1.4rem;
-              font-size: 1.4rem;
-              a {
-                margin-left: 1rem;
-                color: #ffffff;
-                font-size: 1.6rem;
-              }
-            }
-          }
         }
 
         .bottom-account-section {
-          margin-bottom: 5rem;
+          margin-bottom: 2rem;
           label {
             color: #ffffff;
             font-size: 1.6rem;
@@ -196,52 +127,6 @@
             border-radius: 8px;
             color: #869efd;
           }
-        }
-      }
-      .joining-label {
-        font-family: $font_family_Roboto;
-        background: #023ca0;
-        border-radius: 0.4rem;
-        padding: 1.4rem;
-        color: #869efd;
-        margin-bottom: 2rem;
-        font-size: 1.4rem;
-        &__bold {
-          font-weight: bold;
-          color: #ffffff;
-        }
-      }
-      .copy-right-section {
-        color: #ffffff;
-        // display: flex;
-        display: none;
-        align-items: center;
-        justify-content: space-between;
-        margin: 5rem auto;
-        font-size: 1.4rem;
-
-        @include respond("phone") {
-          flex-direction: column;
-          line-height: 2;
-        }
-        .copy-right {
-          width: 20rem;
-          color: #869efd;
-        }
-        .right-text-section {
-          color: #869efd;
-        }
-      }
-      .swarm {
-        display:none;
-        margin: 4rem auto;
-        text-align: center;
-        font-size: 1.2rem;
-        line-height: 2;
-        color: #ffffff;
-        img {
-          width: 80px;
-          margin-bottom: 6rem;
         }
       }
     }

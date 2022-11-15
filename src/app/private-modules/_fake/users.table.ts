@@ -1,4 +1,4 @@
-import { UserModel } from "@sharedModule/models";
+import { UserModel } from "@userModule/models";
 export class UsersTable {
   public static users: UserModel[] = [
     {
@@ -21,6 +21,13 @@ export class UsersTable {
       "first_name": "habet",
       "last_name": "habet",
       "user_name": "habet"
+    },
+    {
+      "id": 4,
+      "email": "savaniyaamit@gmail.com",
+      "first_name": "amit",
+      "last_name": "savaniya",
+      "user_name": "amit_savaniya"
     }
   ]
 }

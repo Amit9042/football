@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { APIPathConstants } from '@sharedModule/constants';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Observable } from 'rxjs';
 import { UsersTable } from './users.table';
@@ -14,7 +15,7 @@ export class FakeAPIService implements InMemoryDbService {
    */
   createDb(): {} | Observable<{}> {
     const db = {
-      users: UsersTable.users,
+      [APIPathConstants.USER]: UsersTable.users,
     };
     return db;
   }

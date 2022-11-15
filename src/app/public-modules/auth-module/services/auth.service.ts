@@ -1,31 +1,30 @@
 import { Injectable } from '@angular/core';
+import { APIConstants, HttpMethodsTypeEnum } from '@sharedModule/constants';
+import { APIManager } from '@sharedModule/services';
+import { UserModel } from '@userModule/models';
+import { LoginModel } from '@authModule/models';
 import { Observable, of } from 'rxjs';
-import { LoginModel } from '../models/login.model';
-import { SignupModel } from '../models/signup.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(
+    private apiManager: APIManager
+  ) { }
 
   login(loginModel: LoginModel): Observable<any> {
     return of(loginModel);
     // return Auth.signIn(loginModel.username, loginModel.password)
   }
 
-  signup(signupData: SignupModel): Promise<any> {
-    return '' as any;
-    /* Auth.signUp({
-      username: signupData.username,
-      password: signupData.password,
-      attributes: {
-        locale: signupData.communicationLang, // user locale = browser locale, different from mainLanguage in org. In ISO format
-        given_name: signupData.firstname,
-        family_name: signupData.lastname,
-      }
-    }) */
+  signup(userModel: UserModel): Observable<any> {
+    return this.apiManager.httpHelperMethod(
+      HttpMethodsTypeEnum.POST,
+      APIConstants.SIGN_UP,
+      userModel
+    );
   }
 
   confirmSignup(username: string | any, code: string | any): Promise<any> {

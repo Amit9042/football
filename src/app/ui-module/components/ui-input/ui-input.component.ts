@@ -10,8 +10,12 @@ export const INPUT_VALUE_ACCESSOR: any = {
 @Component({
   selector: 'ui-input',
   template: `
-  <input #uiInput [placeholder]="placeholder" [type]="type"
-        class="ui-input"  [(ngModel)]="value" [disabled]="disabled">
+  <input *ngIf="type === 'password'" [placeholder]="placeholder" [type]="type"
+        class="ui-input"  [(ngModel)]="value" [disabled]="disabled"
+        autocomplete="new-password">
+  <input *ngIf="type !== 'password'" [placeholder]="placeholder" [type]="type"
+  class="ui-input"  [(ngModel)]="value" [disabled]="disabled"
+  >
   `,
   styleUrls: [`./ui-input.component.scss`],
   providers: [INPUT_VALUE_ACCESSOR],
@@ -22,7 +26,7 @@ export class UIInputComponent implements ControlValueAccessor {
   @Input() placeholder = '';
   @Input() disabled = false;
   @Input() type = 'text';
-  
+
 
   inputElementRef: ElementRef;
 

@@ -1,9 +1,7 @@
 @import "src/assets/scss/abstracts/abstracts";
 
-:host {
-  display: inline-block;
-}
 .ui-button {
+  width: 100%;
   font-family: $font_family_Inter;
   align-items: center;
   justify-content: center;
@@ -46,7 +44,7 @@
     }
   }
   &.medium {
-    padding: 2rem 3rem;
+    padding: 1.5rem 3rem;
     font-weight: 600;
     svg-icon {
       width: 2.5rem;
