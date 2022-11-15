@@ -1,0 +1,100 @@
+<div class="sidebar" id="navSidebar">
+  <div class="sidebar__large" [ngClass]="{ 'sidebar__large--hide': isShowMenu }">
+    <ul class="MT-2 sidebar-scroll">
+      <li>
+        <a id="lnkDashboard" (click)="onCloseNav()" routerLinkActive="active">
+          <mat-icon svgIcon="dashboard" matTooltip="Dashboard"></mat-icon>
+          <span *ngIf="!isShowMenu">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a id="lnkParentClasses" (click)="onCloseNav()" routerLinkActive="active">
+          <mat-icon svgIcon="dashboard" matTooltip="Classes"></mat-icon>
+          <span *ngIf="!isShowMenu">Classes</span>
+        </a>
+      </li>
+      <li>
+        <a id="lnkClasses" (click)="onCloseNav()" routerLinkActive="active">
+          <mat-icon svgIcon="dashboard" matTooltip="Sessions"></mat-icon>
+          <span *ngIf="!isShowMenu">Sessions</span>
+        </a>
+      </li>
+      <li>
+        <a id="lnkStudents" (click)="onCloseNav()" routerLinkActive="active">
+          <mat-icon svgIcon="dashboard" matTooltip="Students"></mat-icon>
+          <span *ngIf="!isShowMenu">Students</span>
+        </a>
+      </li>
+
+      <li>
+        <a id="lnkMaterial" (click)="onCloseNav()" routerLinkActive="active">
+          <mat-icon svgIcon="dashboard" matTooltip="Material"></mat-icon>
+          <span *ngIf="!isShowMenu">Material</span>
+        </a>
+      </li>
+      <li>
+        <a id="lnkRecordedSession" (click)="onCloseNav()" routerLinkActive="active">
+          <mat-icon svgIcon="dashboard" matTooltip="Recorded Session"></mat-icon>
+          <span *ngIf="!isShowMenu">Recorded Session</span>
+        </a>
+      </li>
+
+      <li>
+        <a id="lnkQuestionBankUrl" (click)="onCloseNav()" routerLinkActive="active">
+          <mat-icon svgIcon="dashboard" matTooltip="Question Bank"></mat-icon>
+          <span *ngIf="!isShowMenu">Question Bank</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/']" (click)="onCloseNav()" routerLinkActive="active">
+          <mat-icon svgIcon="dashboard" matTooltip="Doubts"><span></span></mat-icon>
+          <span *ngIf="!isShowMenu">Doubts</span>
+        </a>
+      </li>
+      <li>
+        <a id="lnkAssignmentSession" 
+          [ngClass]="{ 'active': isRouteActive('/') }"
+          routerLinkActive="active">
+          <mat-icon svgIcon="dashboard" matTooltip="Assignment"></mat-icon>
+          <span *ngIf="!isShowMenu">Assignment</span>
+        </a>
+      </li>
+      <li>
+        <a id="lnkPractice" (click)="onCloseNav()" routerLinkActive="active">
+          <mat-icon svgIcon="dashboard" matTooltip="Practice"></mat-icon>
+          <span *ngIf="!isShowMenu">Practice</span>
+        </a>
+      </li>
+
+      <!--  ONLY VISIBLE IN MOBILE -->
+      <li class="xs-show">
+        <a [ngClass]="{active: isDialogOpen}">
+          <mat-icon svgIcon="dashboard" matTooltip="Go Live"></mat-icon>
+          <span *ngIf="!isShowMenu">Go Live</span>
+        </a>
+      </li>
+
+      <li class="xs-show">
+        <a (click)="onCloseNav()" routerLinkActive="active">
+          <mat-icon svgIcon="dashboard" matTooltip="Enrollment Request"></mat-icon>
+          <span *ngIf="!isShowMenu">Enrollment Request</span>
+        </a>
+      </li>
+      <!-- END -->
+    </ul>
+    <!-- End Provider user menu -->
+  </div>
+</div>
+
+<!-- MAT DRAWER FOR SETTING -->
+<mat-drawer-container class="sidenav-container" autosize>
+  <mat-drawer #settingNav class="sidebar-drawer" position="end" hasBackdrop="false">
+    HELLO
+    <!-- <app-setting-drawer (clickEvent)="settingNav.toggle()"></app-setting-drawer> -->
+  </mat-drawer>
+</mat-drawer-container>
+<!-- end -->
+
+<!-- student html start -->
+<!-- <es-user-student-navbar *ngIf="userConfig.app_id === userType.STUDENT"></es-user-student-navbar> -->
+<!-- end -->

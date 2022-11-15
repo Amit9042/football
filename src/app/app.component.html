@@ -1,6 +1,6 @@
 <mat-progress-bar *ngIf="showLoader" [mode]="'indeterminate'"></mat-progress-bar>
 <div *ngIf="showLoader" class="loader-overlay"></div>
-<!-- 'panel-move' : panelMove && isLoggedIn -->
+<app-navbar (menuClick)="panelMove = $event" *ngIf="isLoggedIn"></app-navbar>
 <div [ngClass]="{ 'panel': isLoggedIn, 'panel_move' : panelMove && isLoggedIn}">
     <router-outlet (activate)="onActivate()"></router-outlet>
 </div>

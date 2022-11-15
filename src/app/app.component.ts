@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { AppVisibilityConstants } from '@sharedModule/constants';
 import { scrollToTop } from '@sharedModule/functions';
-import { SharedService } from '@sharedModule/services';
+import { SharedService, SvgIconsService } from '@sharedModule/services';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -22,6 +22,7 @@ export class AppComponent {
   isLoggedIn = false;
 
   constructor(
+    public svgService: SvgIconsService,
     private cdr: ChangeDetectorRef,
     private sharedService: SharedService,
     private snackBar: MatSnackBar) { }
@@ -32,6 +33,7 @@ export class AppComponent {
   }
 
   initialize = () => {
+    this.svgService.registerIcons();
     this.subscribeLoader();
     this.subscribeSnackbar();
     this.subscribeLoggedInStatus();

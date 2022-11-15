@@ -52,4 +52,8 @@ export class SharedService {
     );
     this.isLoggedInUser.next(value);
   }
+
+  logout() {
+    // TO DO
+  }
 }
