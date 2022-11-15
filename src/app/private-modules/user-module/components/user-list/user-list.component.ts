@@ -4,9 +4,10 @@ import { SignupComponent } from '@authModule/components';
 import { SignupParams } from '@authModule/models';
 import { AppConstants } from '@sharedModule/constants';
 import { primengSortingFunction } from '@sharedModule/functions';
+import { SharedService } from '@sharedModule/services';
 import { ConfirmAlertParams, UIConfirmAlertComponent } from '@uiModule/components';
 import { UserColumns, UserColumnsList } from '@userModule/constants';
-import { UserFormFields, UserModel } from '@userModule/models';
+import { UserModel } from '@userModule/models';
 import { UserService } from '@userModule/services';
 import { Table } from 'primeng/table';
 
@@ -24,6 +25,7 @@ export class UserListComponent implements OnInit {
   @ViewChild('userTable', { static: false }) userTable: Table;
 
   constructor(private userService: UserService,
+    private sharedService: SharedService,
     private matDialog: MatDialog
   ) { }
 
@@ -79,7 +81,7 @@ export class UserListComponent implements OnInit {
 
   callDeleteAPI(id) {
     this.userService.deleteUser(id).subscribe(ulist => {
-      console.log(ulist);
+      this.sharedService.setSnackBar('User Deleted Successfully');
       this.getUserList();
     })
   }

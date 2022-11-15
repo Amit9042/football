@@ -68,7 +68,7 @@ export class AppComponent {
     const configSnackBar = new MatSnackBarConfig();
     configSnackBar.verticalPosition = 'top';
     configSnackBar.horizontalPosition = 'right';
-    configSnackBar.duration = 1500;
+    configSnackBar.duration = 2500;
     configSnackBar.panelClass = ['snackbar'];
     this.snackBar.open(message, 'Close', configSnackBar);
   }

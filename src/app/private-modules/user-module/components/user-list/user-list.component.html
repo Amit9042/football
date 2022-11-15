@@ -2,7 +2,8 @@
     <div class="row">
         <div class="row col-md-12 add-btn-section">
             <h1>User List</h1>
-            <ui-button [buttonSize]="'small'" [styleClass]="'primary'" (onClick)="openUserModal()" [buttonLabel]="'Add User'"></ui-button>
+            <ui-button [buttonSize]="'small'" [styleClass]="'primary'" (onClick)="openUserModal()"
+                [buttonLabel]="'Add User'"></ui-button>
         </div>
         <div class="col-md-12 user-list  table-list">
             <p-table #userTable (sortFunction)="customSort($event)" [customSort]="true" [value]="userList"

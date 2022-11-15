@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.initializeForm();
-    if (this.signupParams.isModal) {
+    if (this.signupParams.isModal && this.signupParams.id) {
       this.getUserDetail();
     }
   }
@@ -77,7 +77,13 @@ export class SignupComponent implements OnInit {
       const formValue: UserModel = this.signupForm.value;
       console.log(formValue);
       this.authService.signup(formValue).subscribe(() => {
-        this.sharedService.setSnackBar('success');
+        let msg;
+        if (formValue.id) {
+          msg = 'User Updated Successfully';
+        } else {
+          msg = 'User Created Successfully';
+        }
+        this.sharedService.setSnackBar(msg);
         if (this.signupParams.isModal) {
           this.dialogRef.close(formValue);
         } else {
