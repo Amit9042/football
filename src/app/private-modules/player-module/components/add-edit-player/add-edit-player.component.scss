@@ -1,0 +1,14 @@
+.add-edit-player-container {
+  min-height: 100%;
+  background: #f4f5f7;
+  padding: 2rem;
+
+  .lookup-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+  }
+  .form-field {
+    margin-bottom: 3rem;
+  }
+}
