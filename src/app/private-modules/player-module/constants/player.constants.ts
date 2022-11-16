@@ -1,8 +1,15 @@
 export const PlayerColumns = {
-    email: "email",
     first_name: "first_name",
     last_name: "last_name",
-    actions: "actions"
+    name: 'name',
+    club: 'club',
+    price: 'price',
+    nationality: 'nationality',
+    actions: "actions",
+    id: 'id',
+    age: 'age',
+    height: 'height',
+    position: 'position',
 }
 
 
@@ -16,8 +23,16 @@ export const PlayerColumnsList = [
         columnName: PlayerColumns.last_name
     },
     {
-        displayName: 'Email',
-        columnName: PlayerColumns.email
+        displayName: 'Name',
+        columnName: PlayerColumns.name
+    },
+    {
+        displayName: 'Club',
+        columnName: PlayerColumns.club
+    },
+    {
+        displayName: 'Nationality',
+        columnName: PlayerColumns.nationality
     },
     {
         displayName: 'Action',

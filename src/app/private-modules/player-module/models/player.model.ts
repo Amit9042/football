@@ -10,7 +10,9 @@ export interface PlayerModel {
     "nationality": string;
     "position": string;
     "price": number;
-    "club_id": number
+    "club_id": number;
+
+    club?: string;
 }
 
 export const PlayerFormFields = {

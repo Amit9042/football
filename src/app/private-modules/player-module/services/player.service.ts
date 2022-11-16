@@ -21,8 +21,8 @@ export class PlayerService {
 
   updatePlayer(playerModel: PlayerModel): Observable<PlayerModel> {
     return this.apiManager.httpHelperMethod(
-      HttpMethodsTypeEnum.POST,
-      APIConstants.PLAYER_UPDATE,
+      HttpMethodsTypeEnum.PUT,
+      `${APIConstants.PLAYER_UPDATE}/${playerModel.id}`,
       playerModel
     );
   }

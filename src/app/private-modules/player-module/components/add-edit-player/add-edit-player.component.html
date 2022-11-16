@@ -1,9 +1,9 @@
 <div class="add-edit-player-container">
   <form [formGroup]="playerForm">
-    <div class="row">
+    <div class="row add-row">
       <div class="col-md-12 lookup-header">
         <h1>{{playerModalParams.id ? 'Update Player' : 'Add Player'}}</h1>
-        <mat-icon (click)="closeModal()">close</mat-icon>
+        <mat-icon (click)="close()">close</mat-icon>
       </div>
       <div class="col-md-6 form-field">
         <label>{{ 'Name' }}</label>

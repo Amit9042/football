@@ -22,6 +22,18 @@ export class PlayerListComponent implements OnInit {
   columnNames = PlayerColumns;
   appConst = AppConstants;
   @ViewChild('playerTable', { static: false }) playerTable: Table;
+  clubList = [
+    {
+      label_en: 'Club 1',
+      label_fr: 'Club 1',
+      value: 1
+    },
+    {
+      label_en: 'Club 2',
+      label_fr: 'Club 2',
+      value: 2
+    }
+  ]
 
   constructor(private playerService: PlayerService,
     private sharedService: SharedService,
@@ -46,7 +58,8 @@ export class PlayerListComponent implements OnInit {
           nationality: e.nationality,
           position: e.position,
           price: e.price,
-          club_id: e.club_id
+          club_id: e.club_id,
+          club: this.clubList.find(club => club.value === e.club_id)?.label_en
         }
       });
     });
@@ -64,11 +77,12 @@ export class PlayerListComponent implements OnInit {
       minHeight: '100%'
     })
     dialogRef.afterClosed().subscribe((playerModel: PlayerModel) => {
+      console.log(playerModel, 'playerModelplayerModel');
       if (playerModel) {
         this.getPlayerList();
       }
     });
-  } 
+  }
 
   deletePlayer(id) {
     let dialogRef = this.matDialog.open(UIConfirmAlertComponent, {

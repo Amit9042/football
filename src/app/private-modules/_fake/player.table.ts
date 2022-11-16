@@ -13,7 +13,7 @@ export class PlayerTable {
       "nationality": "Morocco",
       "position": "FORWARD",
       "price": 0,
-      "club_id": 'club1' as any
+      "club_id": 1
     },
     {
       "id": 2,

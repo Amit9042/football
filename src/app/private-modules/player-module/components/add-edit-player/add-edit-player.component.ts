@@ -80,20 +80,24 @@ export class AddEditPlayerComponent implements OnInit {
       const formValue: PlayerModel = this.playerForm.value;
       if (formValue.id) {
         this.playerService.updatePlayer(formValue).subscribe((response) => {
-          this.closeModal(response);
-          this.sharedService.setSnackBar("Player Updated Successfully");
+          this.closeModal(formValue);
+          this.sharedService.setSnackBar("Player updated successfully");
         })
       } else {
         this.playerService.addPlayer(formValue).subscribe((response) => {
-          this.closeModal(response);
-          this.sharedService.setSnackBar('Player Created Successfully');
+          this.closeModal(formValue);
+          this.sharedService.setSnackBar('Player created successfully');
         })
       }
     }
   }
 
-  closeModal(playerModel = null as any) {
+  closeModal(playerModel) {
     this.dialogRef.close(playerModel);
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 
   public get formControls(): { [key: string]: AbstractControl } {
