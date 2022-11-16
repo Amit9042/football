@@ -12,3 +12,4 @@ export * from './ui-place/ui-place.component';
 export * from './ui-square-icon/ui-square-icon.component';
 export * from './ui-tag/ui-tag.component';
 export * from './ui-textarea/ui-textarea.component';
+export * from './ui-img-cropper/ui-img-cropper.component';

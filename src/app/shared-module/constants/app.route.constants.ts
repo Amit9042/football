@@ -11,4 +11,7 @@ export class RouteConstants {
 
   /* USER PATH  */
   public static readonly USER_LIST = `${RoutePathConstants.USER}/${RoutePathConstants.LIST}`;
+
+   /* PLAYER PATH  */
+   public static readonly PLAYER_LIST = `${RoutePathConstants.PLAYER}/${RoutePathConstants.LIST}`;
 }

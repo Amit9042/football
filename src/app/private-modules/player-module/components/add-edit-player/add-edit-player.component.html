@@ -1,0 +1,73 @@
+<div class="add-edit-player-container">
+  <form [formGroup]="playerForm">
+    <div class="row">
+      <div class="col-md-12 lookup-header">
+        <h1>{{playerModalParams.id ? 'Update Player' : 'Add Player'}}</h1>
+        <mat-icon (click)="closeModal()">close</mat-icon>
+      </div>
+      <div class="col-md-6 form-field">
+        <label>{{ 'Name' }}</label>
+        <ui-input [formControlName]="playerFormFields.name"></ui-input>
+        <app-validation-error [control]="formControls[playerFormFields.name]" [fieldName]="'Last Name' ">
+        </app-validation-error>
+      </div>
+      <div class="col-md-6 form-field">
+        <ui-img-cropper [formControlName]="playerFormFields.image"></ui-img-cropper>
+      </div>
+      <div class="col-md-6 form-field">
+        <label>{{ 'First Name' }}</label>
+        <ui-input [formControlName]="playerFormFields.first_name"></ui-input>
+        <app-validation-error [control]="formControls[playerFormFields.first_name]" [fieldName]="'First Name'">
+        </app-validation-error>
+      </div>
+      <div class="col-md-6 form-field">
+        <label>{{ 'Last Name' }}</label>
+        <ui-input [formControlName]="playerFormFields.last_name"></ui-input>
+        <app-validation-error [control]="formControls[playerFormFields.last_name]" [fieldName]="'Last Name' ">
+        </app-validation-error>
+      </div>
+
+      <div class="col-md-6 form-field">
+        <label>{{ 'Age' }}</label>
+        <ui-number [formControlName]="playerFormFields.age"></ui-number>
+        <app-validation-error [control]="formControls[playerFormFields.age]" [fieldName]="'First Name'">
+        </app-validation-error>
+      </div>
+      <div class="col-md-6 form-field">
+        <label>{{ 'Height' }}</label>
+        <ui-number [formControlName]="playerFormFields.height"></ui-number>
+        <app-validation-error [control]="formControls[playerFormFields.height]" [fieldName]="'Height'">
+        </app-validation-error>
+      </div>
+      <div class="col-md-6 form-field">
+        <label>{{ 'Nationality' }}</label>
+        <ui-input [formControlName]="playerFormFields.nationality"></ui-input>
+        <app-validation-error [control]="formControls[playerFormFields.nationality]" [fieldName]="'Nationality'">
+        </app-validation-error>
+      </div>
+      <div class="col-md-6 form-field">
+        <label>{{ 'Price' }}</label>
+        <ui-input [formControlName]="playerFormFields.price"></ui-input>
+        <app-validation-error [control]="formControls[playerFormFields.price]" [fieldName]="'Price'">
+        </app-validation-error>
+      </div>
+      <div class="col-md-6 form-field">
+        <label>{{ 'Club' }}</label>
+        <ui-dropdown [options]="clubList" [formControlName]="playerFormFields.club_id"></ui-dropdown>
+        <app-validation-error [control]="formControls[playerFormFields.club_id]" [fieldName]="'Club'">
+        </app-validation-error>
+      </div>
+      <div class="col-md-6 form-field">
+        <label>{{ 'Position' }}</label>
+        <ui-input [formControlName]="playerFormFields.position"></ui-input>
+        <app-validation-error [control]="formControls[playerFormFields.position]" [fieldName]="'Position'">
+        </app-validation-error>
+      </div>
+      <div class="col-md-12 submit-section">
+        <ui-button [styleClass]="'primary'" (onClick)="saveOrUpdatePlayer()"
+          [buttonLabel]="playerModalParams.id ? 'Update Existing Player' : 'Add New Player'">
+        </ui-button>
+      </div>
+    </div>
+  </form>
+</div>

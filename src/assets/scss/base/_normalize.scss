@@ -129,3 +129,13 @@ textarea {
       min-height: calc(100vh - 17rem);
   }
 }
+
+
+.form-field {
+  position: relative;
+  label {
+    display: inline-block;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,49 @@
+<div class="player-list-section list-layout-section">
+    <div class="row">
+        <div class="row col-md-12 add-btn-section">
+            <h1>Player List</h1>
+            <ui-button [buttonSize]="'small'" [styleClass]="'primary'" (onClick)="openPlayerModal()"
+                [buttonLabel]="'Add Player'"></ui-button>
+        </div>
+        <div class="col-md-12 player-list  table-list">
+            <p-table #playerTable (sortFunction)="customSort($event)" [customSort]="true" [value]="playerList"
+                [columns]="columnsArray">
+                <ng-template pTemplate="colgroup" let-columns>
+                    <colgroup class="column-group">
+                        <col [class]="col.columnName" *ngFor="let col of columns">
+                    </colgroup>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th class="th-{{column.columnName}}"
+                            [pSortableColumnDisabled]="[columnNames.actions].includes(column.columnName)"
+                            [pSortableColumn]="column.columnName" *ngFor="let column of columnsArray">
+                            <div class="td-div">
+                                <span>{{column.displayName}}</span>
+                                <p-sortIcon *ngIf="![columnNames.actions].includes(column.columnName)"
+                                    [field]="column.columnName"></p-sortIcon>
+                            </div>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-player let-columns="columns" let-i="rowIndex">
+                    <tr>
+                        <td *ngFor="let col of columns">
+                            <ng-container [ngSwitch]="col.columnName">
+                                <div class="td-{{columnNames.actions}}" *ngSwitchCase="columnNames.actions">
+                                    <mat-icon (click)="openPlayerModal(player['id'])" [matTooltip]="'Edit'"
+                                        [color]="'primary'" class="edit-icon">edit</mat-icon>
+                                    <mat-icon (click)="deletePlayer(player['id'])" [matTooltip]="'Delete'" [color]="'warn'"
+                                        class="delete-icon">delete</mat-icon>
+                                </div>
+                                <div class="td-{{col.columnName}}" *ngSwitchDefault>
+                                    {{player[col.columnName]}}
+                                </div>
+                            </ng-container>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>

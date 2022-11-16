@@ -53,7 +53,7 @@ export class UserListComponent implements OnInit {
       isModal: true
     }
     let dialogRef = this.matDialog.open(SignupComponent, {
-      panelClass: ['right-modal', 'content_pad_0', 'animate__animated', 'animate__slideInRight'],
+      panelClass: ['width_40', 'right-modal', 'content_pad_0', 'animate__animated', 'animate__slideInRight'],
       position: { right: '0', top: '0' },
       data: json,
     })
