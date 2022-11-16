@@ -21,7 +21,7 @@ export class UIDropdownComponent implements OnInit, ControlValueAccessor {
 
 
   
-  @Input() currentLocale;
+  @Input() currentLocale = 'en';
   @Input() autoDisplayFirst = false;
   @Input() disabled = false;
   private _options: any[] = [];

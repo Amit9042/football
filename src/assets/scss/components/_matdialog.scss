@@ -40,9 +40,17 @@
 }
 
 .right-modal {
-  width: 40%;
-  min-width: 40%;
   min-height: 100%;
   height: 100vh;
   max-height: 100vh;
+}
+
+.width_40 {
+  width: 40%;
+  min-width: 40%;
+}
+
+.width_50 {
+  width: 50%;
+  min-width: 50%;
 }

@@ -25,4 +25,8 @@ export class RoutePathConstants {
 
   /* USER */
   public static readonly USER = 'user';
+
+  /* PLAYER */
+  public static readonly PLAYER = 'player';
+
 }

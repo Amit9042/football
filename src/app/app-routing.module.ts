@@ -16,6 +16,9 @@ const routes: Routes = [
     path: RoutePathConstants.USER, loadChildren: () => import('./private-modules/user-module/user.module').then(m => m.UserModule)
   },
   {
+    path: RoutePathConstants.PLAYER, loadChildren: () => import('./private-modules/player-module/player.module').then(m => m.PlayerModule)
+  },
+  {
     path: RoutePathConstants.DASHBOARD, loadChildren: () => import('./private-modules/dashboard-module/dashboard.module').then(m => m.DashboardModule)
   },
 ];

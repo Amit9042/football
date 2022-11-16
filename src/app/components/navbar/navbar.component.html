@@ -2,9 +2,15 @@
   <div class="sidebar__large" [ngClass]="{ 'sidebar__large--hide': isSmallSidebar }">
     <ul class="MT-2 sidebar-scroll">
       <li>
-        <a  [routerLink]="['/'+routeConstant.USER_LIST]" id="lnkPlayer" routerLinkActive="active">
+        <a [routerLink]="['/'+routeConstant.USER_LIST]" id="lnkPlayer" routerLinkActive="active">
           <mat-icon [svgIcon]="'menu'" [matTooltip]="'Users'"></mat-icon>
           <span *ngIf="!isSmallSidebar">Users</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/'+routeConstant.PLAYER_LIST]" id="lnkPlayer" routerLinkActive="active">
+          <mat-icon [svgIcon]="'menu'" [matTooltip]="'Users'"></mat-icon>
+          <span *ngIf="!isSmallSidebar">Players</span>
         </a>
       </li>
       <li>
