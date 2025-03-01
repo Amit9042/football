@@ -1,0 +1,30 @@
+.list-layout-section {
+  padding: 2rem;
+  margin-top: 3rem;
+  .add-btn-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  .table-list {
+    .p-datatable .p-datatable-thead > tr > th {
+      &.th-actions {
+        text-align: center;
+      }
+    }
+
+    .p-datatable .p-datatable-tbody > tr > td {
+      .td-actions {
+        display: flex;
+        justify-content: right;
+        .mat-icon {
+          cursor: pointer;
+          &.delete-icon {
+            margin-left: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

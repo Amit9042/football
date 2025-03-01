@@ -1,0 +1,141 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  font-size: 10px;
+
+  // Remove the margin in all browsers.
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    font-family: $font_family_Inter;
+    color: $primary-color;
+    letter-spacing: 0.3px;
+  }
+
+  // @include respond("regular-desktop") {
+  //   font-size: 7.5px;
+  // }
+
+  // @include respond("medium-desktop") {
+  //   font-size: 8px;
+  // }
+
+  // @include respond("small-desktop") {
+  //   font-size: 8px;
+  // }
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+  height: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $light-blue-color;
+  border-radius: 2rem;
+}
+
+::-webkit-input-placeholder {
+  color: #9b9b9b; // AMIT
+}
+
+:-moz-placeholder {
+  color: #9b9b9b; // AMIT
+}
+
+::-moz-placeholder {
+  color: #9b9b9b; // AMIT
+}
+
+:-ms-input-placeholder {
+  color: #9b9b9b; // AMIT
+}
+
+.width-100 {
+  width: 100%;
+}
+
+input,
+textarea {
+  &.ng-touched.ng-invalid,
+  &.ng-dirty.ng-invalid {
+    border: 0.1rem solid red;
+  }
+}
+
+
+.panel {
+  @include transition();
+  background: $white-color;
+  left: $large_sidebar_width;
+  width: calc(100% - #{$large_sidebar_width});
+  position: relative;
+  top: $navbar_height;
+  margin: 0;
+  min-height: calc(100vh - 10rem);
+
+  @include respond('tablet') {
+      left: 25rem;
+      width: calc(100% - 25rem);
+  }
+
+  @include respond('phone') {
+      left: 0;
+      width: 100%;
+      margin-bottom: 6.5rem;
+      min-height: calc(100vh - 16rem);
+  }
+}
+
+.panel_move {
+  left: $small_sidebar_width;
+  width: calc(100% - #{$small_sidebar_width}) !important;
+
+  @include respond('tab-port') {
+      width: calc(100% - #{$small_sidebar_width}) !important;
+  }
+
+  .page-footer {
+      width: calc(100% - #{$small_sidebar_width} - 2rem);
+  }
+
+  &.panel-full-screen {
+      left: 0;
+      width: 100% !important;
+      top: 0;
+  }
+
+  @include respond('phone') {
+      left: 0;
+      width: 100% !important;
+      min-height: calc(100vh - 17rem);
+  }
+}
+
+
+.form-field {
+  position: relative;
+  label {
+    display: inline-block;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+}

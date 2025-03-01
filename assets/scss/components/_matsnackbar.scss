@@ -1,0 +1,11 @@
+.snackbar {
+  background: $black-color;
+  color: $white-color;
+  font-weight: 400;
+  span {
+    font-size: 1.4rem;
+  }
+  .mat-button-wrapper {
+    color: $white-color;
+  }
+}
